@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le trésor de Colomiers - Étape 14</title>
+    <title>Énigme - Étape 15</title>
     <style>
-        /* --- DESIGN GÉNÉRAL (IDENTIQUE) --- */
+        /* --- DESIGN GÉNÉRAL --- */
         body {
-            font-family: 'Verdana', sans-serif;
-            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f0f2f5;
             color: #333;
         }
 
@@ -42,7 +42,7 @@
             padding-left: 10px;
         }
 
-        /* --- STYLE DES DIALOGUES (IDENTIQUE) --- */
+        /* --- STYLE DES DIALOGUES --- */
         .dialogue-row {
             display: flex;
             align-items: flex-start;
@@ -88,16 +88,7 @@
             text-transform: uppercase;
         }
 
-        /* Petite classe pour les descriptions narratives (actions, sons) */
-        .narrative-note {
-            text-align: center;
-            font-style: italic;
-            color: #888;
-            font-size: 13px;
-            margin: 15px 0;
-        }
-
-        /* --- COORDONNÉES GPS (IDENTIQUE) --- */
+        /* --- COORDONNÉES GPS --- */
         .gps-box {
             text-align: center;
             margin: 20px 0;
@@ -122,7 +113,7 @@
         /* --- ENCART "MISSION" (ORANGE) --- */
         .mission-box {
             border: 3px dashed #d35400;
-            background-color: #fffaf0; 
+            background-color: #fffaf0;
             padding: 20px;
             margin: 30px 0;
             text-align: left;
@@ -136,7 +127,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 15px 0;
+            margin: 15px 0 5px 0; 
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -159,9 +150,38 @@
             font-weight: bold;
         }
         
+        /* Bouton de validation */
+        #validate-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        /* Styles du bouton */
+        .btn-default {
+            background-color: #bdc3c7; /* Gris neutre */
+            color: #34495e;
+        }
+
+        .btn-validated {
+            background-color: #e67e22; /* Orange: Validé/Sauvegardé */
+            color: white;
+        }
+
+        .btn-default:hover {
+            background-color: #ccd1d1;
+        }
+
         /* Message de validation des contraintes */
         #validation-message {
-            margin-top: 10px;
+            margin-top: 5px; 
             font-size: 14px;
             font-weight: bold;
             color: #e74c3c;
@@ -179,26 +199,19 @@
             font-style: italic;
             font-size: 15px;
         }
-        .direction-box strong {
-            color: #333;
-            font-weight: bold;
-            font-style: normal;
-        }
-        
+
     </style>
 </head>
 <body onload="initEnigmaPage('N')">
 
 <div class="container">
 
-    <h1>Le trésor de Colomiers</h1>
-
-    <h2>14. Au fil des découvertes</h2>
+    <h1>La stèle commémorative</h1>
 
     <div class="gps-box">
         📍 Cliquez pour y aller :<br>
-        <a href="https://www.google.com/maps/search/?api=1&query=43.613556,1.33711103.61154518130817" target="_blank" class="gps-link">
-            43.612479, 1.334056
+        <a href="https://www.google.com/maps/search/?api=1&query=43.61243044775874,1.3343639184069238" target="_blank" class="gps-link">
+            43.61243044775874, 1.3343639184069238
         </a>
     </div>
 
@@ -206,7 +219,15 @@
         <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
         <div class="bubble">
             <span class="name-tag">Loumpour</span>
-            On est sur le bon chemin ! On est arrivés au pont.
+            Allez, plus que quelques mètres et nous serons rue du Prat. Il va m’entendre le Didier !
+        </div>
+    </div>
+    
+    <div class="dialogue-row">
+        <img src="Serge.jpg" alt="Serge" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Serge</span>
+            Eh, attendez, regardez ! C’est quoi cette stèle ?
         </div>
     </div>
 
@@ -214,15 +235,7 @@
         <img src="Bernard.jpg" alt="Bernard" class="avatar">
         <div class="bubble">
             <span class="name-tag">Bernard</span>
-            C’est amusant de voir l’évolution du tissu urbain sur une si petite portion de territoire. On passe de la vieille ville à la nouvelle ville.
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Serge.jpg" alt="Serge" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Serge</span>
-            Tu parles des immeubles récents ? De l’autre côté, c’est le quartier Périole.
+            J’sais pas…
         </div>
     </div>
 
@@ -230,7 +243,23 @@
         <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
         <div class="bubble">
             <span class="name-tag">Loumpour</span>
-            Ce qui est fou, c’est que le projet était si ambitieux, que le développement de la ville s’est fait en un temps record ! De 5.000 habitants en 1962, la ville est passée à près de 30.000 en 1999 !
+            JU88 N°6… pour moi c’est du charabia…
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Serge.jpg" alt="Serge" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Serge</span>
+            Attends, je regarde ça…13 novembre 1944 à 10h50, un Junker JU88 en mission de guerre aérienne contre les forces allemandes décolle de Toulouse. Suite à une avarie il perd de la vitesse, heurte le sol de l’aile puis s’écrase contre une maison. L’appareil est détruit et l’intégralité de l’équipage meurt carbonisé.
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Loumpour</span>
+            Beurk… Les pauvres.
         </div>
     </div>
 
@@ -238,15 +267,7 @@
         <img src="Bernard.jpg" alt="Bernard" class="avatar">
         <div class="bubble">
             <span class="name-tag">Bernard</span>
-            Normal, l’implantation de l’**Aérospatiale** à côté a ramené plein de familles d’ouvriers et de cadres qui devaient être logés. Colomiers, c’est avant tout une ville d’ingénieurs.
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Serge.jpg" alt="Serge" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Serge</span>
-            En fait, Colomiers s’est construite autour de l’emploi. Aujourd’hui, c’est la première ville de la région Occitanie en termes d’emplois rapportés au nombre d’habitants ! Il y a plus d’emplois à Colomiers que d’habitants !
+            Colomiers a plutôt été épargnée par les troupes allemandes par rapport a certaines autres villes, mais la Résistance a été très présente, notamment avec le Maquis « Roger » dirigé par Pierre Touron.
         </div>
     </div>
 
@@ -254,66 +275,83 @@
         <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
         <div class="bubble">
             <span class="name-tag">Loumpour</span>
-            J’espère qu’ils n’embauchent pas de koalas pour faire les chiffres…
+            C’est pas à Colomiers que Léon Blum a été arrêté ?
         </div>
     </div>
 
+    <div class="dialogue-row">
+        <img src="Bernard.jpg" alt="Bernard" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Bernard</span>
+            Si ! Au château de l’armurier, à 1km d’ici, le 15 septembre 1940. C’est même là qu’il a reçu l’invitation de Roosevelt à partir aux Etats-Unis pour fuir le régime de Vichy qui commençait à sacrément pencher du mauvais côté. Invitation qu’il a déclinée, préférant tenter de sauver ce qu’il espérait pouvoir sauver.
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Serge.jpg" alt="Serge" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Serge</span>
+            Et rue du Prat, c’est la famille de Georges Kiejman, avocat et homme politique, qui a été raflée.
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Loumpour</span>
+            Brrr… ça fait froid dans le dos tout ça… bon si on passait à autre chose. Allez, Didier nous attend avec un trésor, on file.
+        </div>
+    </div>
+
+    <h2>MISSION</h2>
 
     <div class="mission-box">
-        À cet endroit, si vous vous retournez, vous devriez voir un grand mur en briques rouges. 
-        <br>
-        Sur ce mur, au rez-de-chaussée, vous trouverez un panneau rectangulaire en pierre blanche. Il y a un nombre de 2 chiffres taillé dessus.
-        <br>
-        <br>
-        Le chiffre des **dizaines** de ce nombre correspond à la valeur **N**.
-        <br>
-        Notez ce chiffre qui vaut **N** :
+        Avant de quitter ce lieu de commémoration, observez la plaque commémorative. Trois des prénoms qui y sont inscrits comportent exactement le même nombre de lettres. Combien précisément ? Notez ce chiffre qui vaut N
         
         <div class="answer-input-zone">
             <label for="N">N =</label>
-            <input type="number" id="N" min="0" max="9" required onchange="handleEnigmaInput('N')" onkeyup="handleEnigmaInput('N')">
+            <input type="number" id="N" min="0" max="99" required oninput="resetValidation('N')">
         </div>
         
         <div id="validation-message"></div>
+
+        <button id="validate-button" class="btn-default" onclick="handleValidation('N')">
+            Valider la réponse
+        </button>
     </div>
 
 
     <div class="direction-box">
-        Bravo, vous avez trouvé toutes les variables ! Il ne vous reste plus qu’à résoudre l’**énigme finale** en utilisant les valeurs des 14 lettres : **A, B, C, D, E, F, G, H, I, J, K, L, M, N**.
-        <br><br>
-        <a href="#final-enigma" class="path-link">Cliquez ici pour l'étape finale</a>
+        Poursuivez sur la rue des garibaldiens, au bout de la rue prenez à droite et descendez la rue du Prat en direction de la place Firmin Pons. Arrêtez-vous au point GPS défini.
     </div>
 
 </div>
 
 <script>
     // ----------------------------------------------------------------------
-    // --- GESTION ET PERSISTANCE DES DONNÉES (À INCLURE DANS CHAQUE PAGE) ---
+    // --- GESTION ET PERSISTANCE DES DONNÉES ---
     // ----------------------------------------------------------------------
 
-    // Clé de stockage (doit être la même sur toutes les pages)
     const ENIGMA_STORAGE_KEY = 'colomiers_enigma_answers';
-    // Maintien de la structure complète des variables pour la persistance
     const DEFAULT_ANSWERS = {A: null, B: null, C: null, D: null, E: null, F: null, G: null, H: null, I: null, J: null, K: null, L: null, M: null, N: null};
+    
+    // ⚠️ RÉPONSE CORRECTE SECRÈTE POUR N
+    const CORRECT_ANSWER_N = 6;
 
-    /**
-     * Charge les réponses depuis le stockage local du navigateur.
-     */
+
     function loadEnigmaAnswers() {
         try {
             const savedData = localStorage.getItem(ENIGMA_STORAGE_KEY);
-            // Fusionner pour s'assurer que toutes les clés existent
-            return savedData ? {...DEFAULT_ANSWERS, ...JSON.parse(savedData)} : DEFAULT_ANSWERS;
+            if (!savedData) {
+                return DEFAULT_ANSWERS;
+            }
+            return {...DEFAULT_ANSWERS, ...JSON.parse(savedData)};
         } catch (e) {
             console.error("Impossible de charger les réponses. Réinitialisation des données.", e);
             return DEFAULT_ANSWERS;
         }
     }
 
-    /**
-     * Sauvegarde les réponses dans le stockage local du navigateur.
-     * @param {Object} vars - L'objet contenant toutes les variables d'énigme.
-     */
     function saveEnigmaAnswers(vars) {
         try {
             localStorage.setItem(ENIGMA_STORAGE_KEY, JSON.stringify(vars));
@@ -321,62 +359,107 @@
             console.error("Impossible de sauvegarder les réponses. Le stockage local est bloqué.", e);
         }
     }
-
-    /**
-     * Gère la saisie de l'utilisateur pour une variable spécifique (N: chiffre unique).
-     * @param {string} varKey - La lettre de la variable (ex: 'N').
-     */
-    function handleEnigmaInput(varKey) {
+    
+    function resetValidation(varKey) {
         const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button');
         const validationMessage = document.getElementById('validation-message');
         
-        let value = inputElement.value.trim();
-        let numericValue = parseInt(value);
+        button.classList.remove('btn-validated');
+        button.classList.add('btn-default');
+        button.textContent = "Valider la réponse";
 
-        let currentVars = loadEnigmaAnswers();
         validationMessage.textContent = "";
-        validationMessage.style.color = "#e74c3c"; // Rouge par défaut
 
-        if (value === "") {
-            // Cas où le champ est vide
+        const rawValue = inputElement.value.trim();
+        if (rawValue === "") {
+            let currentVars = loadEnigmaAnswers();
             currentVars[varKey] = null;
             saveEnigmaAnswers(currentVars);
-            return;
         }
+    }
+
+
+    function handleValidation(varKey) {
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button');
+        const validationMessage = document.getElementById('validation-message');
         
-        // 1. Validation de la plage et du format (chiffre unique)
-        if (isNaN(numericValue) || value.length > 1 || numericValue < 0 || numericValue > 9) {
-            validationMessage.textContent = "❌ Veuillez entrer un chiffre unique (0-9).";
+        const rawValue = inputElement.value.trim();
+        const value = parseInt(rawValue);
+        let currentVars = loadEnigmaAnswers();
+        
+        validationMessage.textContent = "";
+
+        // Détermination de la réponse attendue pour cette étape
+        const expectedAnswer = CORRECT_ANSWER_N; 
+        
+        // CAS 1: Champ vide ou non numérique
+        if (rawValue === "" || isNaN(value) || rawValue.includes('.')) {
+            validationMessage.textContent = "❌ Veuillez entrer un nombre entier positif.";
             currentVars[varKey] = null;
             saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
             return;
         }
-        
-        // 2. Si la valeur est valide, on la sauvegarde
-        currentVars[varKey] = numericValue;
+
+        // CAS 2: Validation Spécifique (Vérification de la réponse)
+        if (value !== expectedAnswer) {
+            validationMessage.textContent = `❌ Ce n'est pas la bonne réponse pour ${varKey}. Observez attentivement la plaque commémorative.`;
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
+            return;
+        }
+
+
+        // CAS 3: Succès - La valeur est valide
+        currentVars[varKey] = value;
         saveEnigmaAnswers(currentVars);
         
-        // Message optionnel de confirmation si la valeur est sauvegardée
-        validationMessage.textContent = "✅ Chiffre N sauvegardé ! Vous avez toutes les variables !";
-        validationMessage.style.color = "#2ecc71"; // Vert pour succès
-        setTimeout(() => { validationMessage.textContent = ""; }, 5000); // Effacer après 5 secondes
+        // Mise à jour du bouton pour indiquer la sauvegarde
+        button.classList.remove('btn-default');
+        button.classList.add('btn-validated');
+        button.textContent = `Réponse ${varKey} = ${value} Sauvegardée !`;
+    }
 
+    function resetButtonToDefault(button) {
+        button.classList.remove('btn-validated');
+        button.classList.add('btn-default');
+        button.textContent = "Valider la réponse";
     }
     
-    /**
-     * Fonction d'initialisation : charge les données au chargement de la page.
-     * @param {string} varKey - La lettre de la variable pour cette page (ex: 'N').
-     */
     function initEnigmaPage(varKey) {
         const loadedVars = loadEnigmaAnswers();
         const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button');
         const savedValue = loadedVars[varKey];
         
-        if (inputElement && savedValue !== null) {
-            // Afficher la valeur sauvegardée
-            inputElement.value = savedValue;
-        } else if (inputElement) {
-            inputElement.value = ""; // S'assurer qu'il est vide si aucune valeur n'est sauvegardée
+        // 1. Vider l'input dans tous les cas au chargement 
+        if (inputElement) {
+            inputElement.value = "";
+        }
+        
+        // 2. Mettre à jour l'état du bouton si une valeur est trouvée dans la mémoire
+        if (button && savedValue !== null) {
+            // S'assurer que la valeur sauvegardée correspond à la réponse attendue avant de valider visuellement
+            if (savedValue === CORRECT_ANSWER_N) {
+                button.classList.remove('btn-default');
+                button.classList.add('btn-validated');
+                button.textContent = `Réponse ${varKey} = ${savedValue} Sauvegardée !`;
+            } else {
+                 // Si une ancienne valeur incorrecte est présente, réinitialiser
+                resetButtonToDefault(button);
+                loadedVars[varKey] = null;
+                saveEnigmaAnswers(loadedVars);
+            }
+        } else if (button) {
+            resetButtonToDefault(button);
+        }
+        
+        // 3. Assurer que le bouton est réinitialisé si l'utilisateur commence à saisir
+        if(inputElement) {
+            inputElement.oninput = () => resetValidation(varKey); 
         }
     };
 </script>
