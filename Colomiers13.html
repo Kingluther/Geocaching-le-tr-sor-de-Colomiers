@@ -1,486 +1,573 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le trésor de Colomiers - Étape 13</title>
-    <style>
-        /* --- DESIGN GÉNÉRAL (IDENTIQUE) --- */
-        body {
-            font-family: 'Verdana', sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le trésor de Colomiers - Étape 13</title>
+    <style>
+        /* --- DESIGN GÉNÉRAL (IDENTIQUE) --- */
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            min-height: 100vh;
-            padding: 20px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            padding-bottom: 40px;
-        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            min-height: 100vh;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding-bottom: 40px;
+        }
 
-        h1 {
-            text-align: center;
-            color: #d35400;
-            font-size: 24px;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 15px;
-        }
+        h1 {
+            text-align: center;
+            color: #d35400;
+            font-size: 24px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
 
-        h2 {
-            font-size: 18px;
-            color: #2980b9;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            border-left: 5px solid #2980b9;
-            padding-left: 10px;
-        }
+        h2 {
+            font-size: 18px;
+            color: #2980b9;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-left: 5px solid #2980b9;
+            padding-left: 10px;
+        }
 
-        /* --- STYLE DES DIALOGUES (IDENTIQUE) --- */
-        .dialogue-row {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
+        /* --- STYLE DES DIALOGUES (IDENTIQUE) --- */
+        .dialogue-row {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
 
-        .avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ccc;
-            flex-shrink: 0;
-            margin-right: 15px;
-        }
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ccc;
+            flex-shrink: 0;
+            margin-right: 15px;
+        }
 
-        .bubble {
-            background-color: #e9eff5;
-            padding: 12px 15px;
-            border-radius: 0 15px 15px 15px;
-            position: relative;
-            font-size: 15px;
-            line-height: 1.4;
-        }
-        
-        .bubble::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -10px;
-            width: 0;
-            height: 0;
-            border-top: 10px solid #e9eff5;
-            border-left: 10px solid transparent;
-        }
+        .bubble {
+            background-color: #e9eff5;
+            padding: 12px 15px;
+            border-radius: 0 15px 15px 15px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+        
+        .bubble::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid #e9eff5;
+            border-left: 10px solid transparent;
+        }
 
-        .name-tag {
-            font-size: 11px;
-            font-weight: bold;
-            color: #666;
-            margin-bottom: 4px;
-            display: block;
-            text-transform: uppercase;
-        }
+        .name-tag {
+            font-size: 11px;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 4px;
+            display: block;
+            text-transform: uppercase;
+        }
 
-        /* Petite classe pour les descriptions narratives (actions, sons) */
-        .narrative-note {
-            text-align: center;
-            font-style: italic;
-            color: #888;
-            font-size: 13px;
-            margin: 15px 0;
-        }
+        /* Petite classe pour les descriptions narratives (actions, sons) */
+        .narrative-note {
+            text-align: center;
+            font-style: italic;
+            color: #888;
+            font-size: 13px;
+            margin: 15px 0;
+        }
 
-        /* --- COORDONNÉES GPS (IDENTIQUE) --- */
-        .gps-box {
-            text-align: center;
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #fff3cd;
-            border-radius: 8px;
-            border: 1px solid #ffeeba;
-        }
-        .gps-link {
-            display: inline-block;
-            margin-top: 5px;
-            color: #856404;
-            font-weight: bold;
-            text-decoration: none;
-            border-bottom: 2px dotted #856404;
-        }
-        .gps-link:hover {
-            background-color: #856404;
-            color: white;
-        }
+        /* --- COORDONNÉES GPS (IDENTIQUE) --- */
+        .gps-box {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff3cd;
+            border-radius: 8px;
+            border: 1px solid #ffeeba;
+        }
+        .gps-link {
+            display: inline-block;
+            margin-top: 5px;
+            color: #856404;
+            font-weight: bold;
+            text-decoration: none;
+            border-bottom: 2px dotted #856404;
+        }
+        .gps-link:hover {
+            background-color: #856404;
+            color: white;
+        }
 
-        /* --- ENCART "MISSION" (ORANGE) --- */
-        .mission-box {
-            border: 3px dashed #d35400;
-            background-color: #fffaf0; /* Fond très clair */
-            padding: 20px;
-            margin: 30px 0;
-            text-align: left;
-            font-size: 15px;
-            border-radius: 10px;
-            color: #333;
-        }
-        
-        /* Zone de saisie du résultat (M) */
-        .answer-input-zone {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 15px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f8f9fa;
-        }
-        
-        .answer-input-zone label {
-            font-weight: bold;
-            margin-right: 10px;
-            color: #d35400; /* Mettre la variable en couleur mission */
-        }
+        /* --- ENCART "MISSION" (ORANGE) --- */
+        .mission-box {
+            border: 3px dashed #d35400;
+            background-color: #fffaf0; /* Fond très clair */
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+            font-size: 15px;
+            border-radius: 10px;
+            color: #333;
+        }
+        
+        /* Zone de saisie du résultat (M) - Harmonisé */
+        .answer-input-zone {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0 5px 0; /* Ajusté la marge du bas pour coller avec le bouton/message */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+        
+        .answer-input-zone label {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #d35400; /* Mettre la variable en couleur mission */
+        }
 
-        .answer-input-zone input {
-            width: 50px;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        
-        /* Message de validation des contraintes */
-        #validation-message {
-            margin-top: 10px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #e74c3c;
-            min-height: 20px;
-            text-align: center;
-        }
+        .answer-input-zone input {
+            /* RECTIFICATION: Utilisation de 50px comme dans l'Étape 6 */
+            width: 50px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        /* Bouton de validation (Identique au modèle) */
+        #validate-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
 
-        /* --- ENCART "DIRECTION" (GRIS/NEUTRE) --- */
-        .direction-box {
-            background-color: #f8f9fa;
-            border-left: 6px solid #95a5a6;
-            padding: 15px 20px;
-            margin-top: 40px;
-            color: #555;
-            font-style: italic;
-            font-size: 15px;
-        }
-        .direction-box strong {
-            color: #333;
-            font-weight: bold;
-            font-style: normal;
-        }
-        .direction-box .path-option {
-            margin-top: 10px;
-        }
-        .direction-box .path-link {
-            color: #2980b9;
-            text-decoration: none;
-            border-bottom: 1px dotted #2980b9;
-        }
-        
-        /* --- Styles spécifiques pour les avatars superposés avec chevauchement léger (IDENTIQUE) --- */
-        .stacked-avatars-visible {
-            position: relative;
-            width: 80px; 
-            height: 50px; 
-            flex-shrink: 0;
-            margin-right: 15px;
-        }
+        /* Styles du bouton (Identique au modèle) */
+        .btn-default {
+            background-color: #bdc3c7; /* Gris neutre */
+            color: #34495e;
+        }
 
-        .stacked-avatars-visible .avatar-left {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 2; 
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ccc;
-        }
+        .btn-validated {
+            background-color: #e67e22; /* Orange: Validé/Sauvegardé */
+            color: white;
+        }
 
-        .stacked-avatars-visible .avatar-right {
-            position: absolute;
-            top: 0;
-            left: 30px; 
-            z-index: 1;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ccc;
-        }
+        .btn-default:hover {
+            background-color: #ccd1d1;
+        }
 
-    </style>
+        /* Message de validation des contraintes (Identique au modèle) */
+        #validation-message {
+            margin-top: 5px; /* Ajusté pour coller avec l'input */
+            font-size: 14px;
+            font-weight: bold;
+            color: #e74c3c;
+            min-height: 20px;
+            text-align: center;
+        }
+
+        /* --- ENCART "DIRECTION" (GRIS/NEUTRE) --- */
+        .direction-box {
+            background-color: #f8f9fa;
+            border-left: 6px solid #95a5a6;
+            padding: 15px 20px;
+            margin-top: 40px;
+            color: #555;
+            font-style: italic;
+            font-size: 15px;
+        }
+        .direction-box strong {
+            color: #333;
+            font-weight: bold;
+            font-style: normal;
+        }
+        .direction-box .path-option {
+            margin-top: 10px;
+        }
+        .direction-box .path-link {
+            color: #2980b9;
+            text-decoration: none;
+            border-bottom: 1px dotted #2980b9;
+        }
+        
+        /* --- Styles spécifiques pour les avatars superposés avec chevauchement léger (IDENTIQUE) --- */
+        .stacked-avatars-visible {
+            position: relative;
+            width: 80px; 
+            height: 50px; 
+            flex-shrink: 0;
+            margin-right: 15px;
+        }
+
+        .stacked-avatars-visible .avatar-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2; 
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ccc;
+        }
+
+        .stacked-avatars-visible .avatar-right {
+            position: absolute;
+            top: 0;
+            left: 30px; 
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ccc;
+        }
+
+    </style>
 </head>
 <body onload="initEnigmaPage('M')">
 
 <div class="container">
 
-    <h1>Le trésor de Colomiers</h1>
+    <h1>Le trésor de Colomiers</h1>
 
-    <h2>13. Place Alex Raymond</h2>
+    <h2>13. Place Alex Raymond</h2>
 
-    <div class="gps-box">
-        📍 Cliquez pour y aller :<br>
-        <a href="https://www.google.com/maps/search/?api=1&query=43.613556,1.33711103.61238726884171" target="_blank" class="gps-link">
-            43.610179, 1.334539
-        </a>
-    </div>
-
-
-    <div class="dialogue-row">
-        <img src="Serge.jpg" alt="Serge" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Serge</span>
-            Vous entendez ??
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <div class="stacked-avatars-visible">
-            <img src="Loumpour.jpg" alt="Loumpour" class="avatar-left">
-            <img src="Bernard.jpg" alt="Bernard" class="avatar-right">
-        </div>
-        <div class="bubble">
-            <span class="name-tag">Loumpour et Bernard (perplexes)</span>
-            Euh… non, quoi ?
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Serge.jpg" alt="Serge" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Serge</span>
-            Les bruits de la fête… les flonflons, les accordéons, les manèges…
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Loumpour</span>
-            Euh, j’entends rien, mais c’est sûrement parce que t’es plus sensible à la musique que nous…
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Bernard.jpg" alt="Bernard" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Bernard</span>
-            Oui, et aussi parce que nous sommes précisément à l’endroit où se dressait le mât de cocagne. Avant la construction du nouvel Hôtel de Ville en 1991, cette place était une simple place couverte de bitume, sans rien autour. Mais en son centre on trouvait encore le fameux mât typique des festivités du Lauragais.
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Serge.jpg" alt="Serge" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Serge</span>
-            C’est pas le truc où il faut grimper tout en haut pour décrocher du jambon et le mât était frotté avec de la graisse ou du savon pour t’empêcher de grimper ?
-        </div>
-        
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Bernard.jpg" alt="Bernard" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Bernard</span>
-            Exactement ! Seuls les plus habiles et musclés parvenaient à ramener quelque chose.
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Loumpour (rêveuse)</span>
-            … un jeu où pour gagner il suffit de savoir monter aux arbres… un vrai rêve de koala…
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Bernard.jpg" alt="Bernard" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Bernard</span>
-            Aujourd’hui les festivités du 14 juillet sont toujours célébrées ici avec les manèges de la fête foraine, et le feu d’artifice est tiré le 13 juillet au soir sur le frontispice de l’Hotel de Ville.
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Loumpour</span>
-            Le 13 juillet… ouais, y a pas qu’en matière de rugby qu’on craint la concurrence de Toulouse…
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Serge.jpg" alt="Serge" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Serge</span>
-            Tiens, puisque tu nous reparles de rugby, regarde, là, le Sadourny Café. Ton ancien arrière du XV de France, il est restaurateur maintenant !
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Loumpour</span>
-            J’espère qu’il y a des plats à l’eucalyptus !
-        </div>
-    </div>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.613556,1.33711103.61238726884171" target="_blank" class="gps-link">
+            43.610179, 1.334539
+        </a>
+    </div>
 
 
-    <div class="mission-box">
-        Attardez vous un peu sur l’esplanade de la mairie. En regardant la porte d’entrée de l’édifice depuis votre position, combien de topiaires (petits arbustes taillés précautionneusement) comptez-vous ?
-        <br>
-        Ajoutez ceux à votre gauche et ceux à votre droite. C’est un nombre impair.
-        <br><br>
-        Notez ce nombre qui vaut **M** :
-        
-        <div class="answer-input-zone">
-            <label for="M">M =</label>
-            <input type="number" id="M" min="0" max="9" required onchange="handleEnigmaInput('M')" onkeyup="handleEnigmaInput('M')">
-        </div>
-        
-        <div id="validation-message"></div>
-    </div>
+    <div class="dialogue-row">
+        <img src="Serge.jpg" alt="Serge" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Serge</span>
+            Vous entendez ??
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <div class="stacked-avatars-visible">
+            <img src="Loumpour.jpg" alt="Loumpour" class="avatar-left">
+            <img src="Bernard.jpg" alt="Bernard" class="avatar-right">
+        </div>
+        <div class="bubble">
+            <span class="name-tag">Loumpour et Bernard (perplexes)</span>
+            Euh… non, quoi ?
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Serge.jpg" alt="Serge" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Serge</span>
+            Les bruits de la fête… les flonflons, les accordéons, les manèges…
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Loumpour</span>
+            Euh, j’entends rien, mais c’est sûrement parce que t’es plus sensible à la musique que nous…
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Bernard.jpg" alt="Bernard" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Bernard</span>
+            Oui, et aussi parce que nous sommes précisément à l’endroit où se dressait le mât de cocagne. Avant la construction du nouvel Hôtel de Ville en 1991, cette place était une simple place couverte de bitume, sans rien autour. Mais en son centre on trouvait encore le fameux mât typique des festivités du Lauragais.
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Serge.jpg" alt="Serge" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Serge</span>
+            C’est pas le truc où il faut grimper tout en haut pour décrocher du jambon et le mât était frotté avec de la graisse ou du savon pour t’empêcher de grimper ?
+        </div>
+        
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Bernard.jpg" alt="Bernard" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Bernard</span>
+            Exactement ! Seuls les plus habiles et musclés parvenaient à ramener quelque chose.
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Loumpour (rêveuse)</span>
+            … un jeu où pour gagner il suffit de savoir monter aux arbres… un vrai rêve de koala…
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Bernard.jpg" alt="Bernard" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Bernard</span>
+            Aujourd’hui les festivités du 14 juillet sont toujours célébrées ici avec les manèges de la fête foraine, et le feu d’artifice est tiré le 13 juillet au soir sur le frontispice de l’Hotel de Ville.
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Loumpour</span>
+            Le 13 juillet… ouais, y a pas qu’en matière de rugby qu’on craint la concurrence de Toulouse…
+        </div>
+        
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Serge.jpg" alt="Serge" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Serge</span>
+            Tiens, puisque tu nous reparles de rugby, regarde, là, le Sadourny Café. Ton ancien arrière du XV de France, il est restaurateur maintenant !
+        </div>
+    </div>
+
+    <div class="dialogue-row">
+        <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
+        <div class="bubble">
+            <span class="name-tag">Loumpour</span>
+            J’espère qu’il y a des plats à l’eucalyptus !
+        </div>
+    </div>
 
 
-    <div class="direction-box">
-        Quittez à présent la place en laissant l’Hôtel de ville sur votre droite. Puis empruntez l’avenue d’Occitanie vers la droite.
-        <br><br>
-        <strong>Deux possibilités s’offrent à vous :</strong>
-        
-        <div class="path-option">
-            <strong>1. Option "Passerelle" :</strong>
-            Soit passer par le square des marronniers (<a href="https://www.google.com/maps/search/?api=1&query=43.611912,1.333595" target="_blank" class="path-link">43.611912, 1.333595</a>) puis la passerelle (<a href="https://www.google.com/maps/search/?api=1&query=43.612387,1.333596" target="_blank" class="path-link">43.612387, 1.333596</a>) après quoi vous contournerez le premier immeuble en le laissant à votre gauche.
-        </div>
-        
-        <div class="path-option">
-            <strong>2. Option "Rue de Limogne" :</strong>
-            Soit vous empruntez la rue de Limogne (<a href="https://www.google.com/maps/search/?api=1&query=43.611545,1.333881" target="_blank" class="path-link">43.611545, 1.333881</a>) jusqu’au <a href="https://www.google.com/maps/search/?api=1&query=43.612100,1.334133" target="_blank" class="path-link">43.612100, 1.334133</a> et vous prenez en face au passage piéton.
-        </div>
-    </div>
+    <div class="mission-box">
+        Attardez vous un peu sur l’esplanade de la mairie. En regardant la porte d’entrée de l’édifice depuis votre position, combien de topiaires (petits arbustes taillés précautionneusement) comptez-vous ?
+        <br>
+        Ajoutez ceux à votre gauche et ceux à votre droite. C’est un nombre impair.
+        <br><br>
+        Notez ce nombre qui vaut M :
+        
+        <div class="answer-input-zone">
+            <label for="M">M =</label>
+            <input type="number" id="M" min="0" max="99" required oninput="resetValidation('M')">
+        </div>
+        
+        <div id="validation-message"></div>
+
+        <button id="validate-button" class="btn-default" onclick="handleValidation('M')">
+            Valider la réponse
+        </button>
+    </div>
+
+
+    <div class="direction-box">
+        Quittez à présent la place en laissant l’Hôtel de ville sur votre droite. Puis empruntez l’avenue d’Occitanie vers la droite.
+        <br><br>
+        <strong>Deux possibilités s’offrent à vous :</strong>
+        
+        <div class="path-option">
+            <strong>1. Option "Passerelle" :</strong>
+            Soit passer par le square des marronniers (<a href="https://www.google.com/maps/search/?api=1&query=43.611912,1.333595" target="_blank" class="path-link">43.611912, 1.333595</a>) puis la passerelle (<a href="https://www.google.com/maps/search/?api=1&query=43.612387,1.333596" target="_blank" class="path-link">43.612387, 1.333596</a>) après quoi vous contournerez le premier immeuble en le laissant à votre gauche.
+        </div>
+        
+        <div class="path-option">
+            <strong>2. Option "Rue de Limogne" :</strong>
+            Soit vous empruntez la rue de Limogne (<a href="https://www.google.com/maps/search/?api=1&query=43.611545,1.333881" target="_blank" class="path-link">43.611545, 1.333881</a>) jusqu’au <a href="https://www.google.com/maps/search/?api=1&query=43.612100,1.334133" target="_blank" class="path-link">43.612100, 1.334133</a> et vous prenez en face au passage piéton.
+        </div>
+    </div>
 
 </div>
 
 <script>
-    // ----------------------------------------------------------------------
-    // --- GESTION ET PERSISTANCE DES DONNÉES (À INCLURE DANS CHAQUE PAGE) ---
-    // ----------------------------------------------------------------------
+    // ----------------------------------------------------------------------
+    // --- GESTION ET PERSISTANCE DES DONNÉES (DU MODÈLE ÉTAPE 6) ---
+    // ----------------------------------------------------------------------
 
-    // Clé de stockage (doit être la même sur toutes les pages)
-    const ENIGMA_STORAGE_KEY = 'colomiers_enigma_answers';
-    // Maintien de la structure complète des variables pour la persistance
-    const DEFAULT_ANSWERS = {A: null, B: null, C: null, D: null, E: null, F: null, G: null, H: null, I: null, J: null, K: null, L: null, M: null, N: null};
+    const ENIGMA_STORAGE_KEY = 'colomiers_enigma_answers';
+    // Maintien de la structure complète des variables pour la persistance
+    const DEFAULT_ANSWERS = {A: null, B: null, C: null, D: null, E: null, F: null, G: null, H: null, I: null, J: null, K: null, L: null, M: null, N: null};
 
-    /**
-     * Charge les réponses depuis le stockage local du navigateur.
-     */
-    function loadEnigmaAnswers() {
-        try {
-            const savedData = localStorage.getItem(ENIGMA_STORAGE_KEY);
-            // Fusionner pour s'assurer que toutes les clés existent
-            return savedData ? {...DEFAULT_ANSWERS, ...JSON.parse(savedData)} : DEFAULT_ANSWERS;
-        } catch (e) {
-            console.error("Impossible de charger les réponses. Réinitialisation des données.", e);
-            return DEFAULT_ANSWERS;
-        }
-    }
+    /**
+     * Charge les réponses depuis le localStorage.
+     */
+    function loadEnigmaAnswers() {
+        try {
+            const savedData = localStorage.getItem(ENIGMA_STORAGE_KEY);
+            // S'assurer que si savedData est null ou vide, on retourne l'objet par défaut (toutes les clés à null)
+            if (!savedData) {
+                return DEFAULT_ANSWERS;
+            }
+            // Fusionner pour s'assurer que toutes les clés existent
+            return {...DEFAULT_ANSWERS, ...JSON.parse(savedData)};
+        } catch (e) {
+            console.error("Impossible de charger les réponses. Réinitialisation des données.", e);
+            return DEFAULT_ANSWERS;
+        }
+    }
 
-    /**
-     * Sauvegarde les réponses dans le stockage local du navigateur.
-     * @param {Object} vars - L'objet contenant toutes les variables d'énigme.
-     */
-    function saveEnigmaAnswers(vars) {
-        try {
-            localStorage.setItem(ENIGMA_STORAGE_KEY, JSON.stringify(vars));
-        } catch (e) {
-            console.error("Impossible de sauvegarder les réponses. Le stockage local est bloqué.", e);
-        }
-    }
+    function saveEnigmaAnswers(vars) {
+        try {
+            localStorage.setItem(ENIGMA_STORAGE_KEY, JSON.stringify(vars));
+        } catch (e) {
+            console.error("Impossible de sauvegarder les réponses. Le stockage local est bloqué.", e);
+        }
+    }
+    
+    /**
+     * Réinitialise le style du bouton de validation lorsque le champ est modifié.
+     * @param {string} varKey - La lettre de la variable (ex: 'M').
+     */
+    function resetValidation(varKey) {
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button');
+        const validationMessage = document.getElementById('validation-message');
+        
+        // 1. Réinitialiser le style du bouton
+        button.classList.remove('btn-validated');
+        button.classList.add('btn-default');
+        button.textContent = "Valider la réponse";
 
-    /**
-     * Gère la saisie de l'utilisateur pour une variable spécifique (M: chiffre impair unique).
-     * @param {string} varKey - La lettre de la variable (ex: 'M').
-     */
-    function handleEnigmaInput(varKey) {
-        const inputElement = document.getElementById(varKey);
-        const validationMessage = document.getElementById('validation-message');
-        
-        let value = inputElement.value.trim();
-        let numericValue = parseInt(value);
+        // 2. Supprimer les messages d'erreur au fur et à mesure de la saisie
+        validationMessage.textContent = "";
 
-        let currentVars = loadEnigmaAnswers();
-        validationMessage.textContent = "";
-        validationMessage.style.color = "#e74c3c"; // Rouge par défaut
+        // 3. Vider la valeur sauvegardée si l'utilisateur vide l'input
+        const rawValue = inputElement.value.trim();
+        if (rawValue === "") {
+            let currentVars = loadEnigmaAnswers();
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+        }
+    }
 
-        if (value === "") {
-            // Cas où le champ est vide
-            currentVars[varKey] = null;
-            saveEnigmaAnswers(currentVars);
-            return;
-        }
-        
-        // 1. Validation de la plage et du format
-        if (isNaN(numericValue) || value.length > 1 || numericValue < 0 || numericValue > 9) {
-            validationMessage.textContent = "❌ Veuillez entrer un chiffre unique (0-9).";
-            currentVars[varKey] = null;
-            saveEnigmaAnswers(currentVars);
-            return;
-        }
-        
-        // 2. Validation Spécifique (Doit être un nombre impair)
-        if (numericValue % 2 === 0) {
-            validationMessage.textContent = "❌ Le nombre doit être impair (voir indice de la mission).";
-            currentVars[varKey] = null;
-            saveEnigmaAnswers(currentVars);
-            return;
-        }
 
-        
-        // 3. Si la valeur est valide, on la sauvegarde
-        currentVars[varKey] = numericValue;
-        saveEnigmaAnswers(currentVars);
-        
-        // Message optionnel de confirmation si la valeur est sauvegardée
-        validationMessage.textContent = "✅ Chiffre M sauvegardé !";
-        validationMessage.style.color = "#2ecc71"; // Vert pour succès
-        setTimeout(() => { validationMessage.textContent = ""; }, 3000); // Effacer après 3 secondes
+    /**
+     * Gère la validation de l'utilisateur au clic sur le bouton.
+     * @param {string} varKey - La lettre de la variable (ex: 'M').
+     */
+    function handleValidation(varKey) {
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button');
+        const validationMessage = document.getElementById('validation-message');
+        
+        const rawValue = inputElement.value.trim();
+        const value = parseInt(rawValue);
+        let currentVars = loadEnigmaAnswers();
+        
+        validationMessage.textContent = "";
 
-    }
-    
-    /**
-     * Fonction d'initialisation : charge les données au chargement de la page.
-     * @param {string} varKey - La lettre de la variable pour cette page (ex: 'M').
-     */
-    function initEnigmaPage(varKey) {
-        const loadedVars = loadEnigmaAnswers();
-        const inputElement = document.getElementById(varKey);
-        const savedValue = loadedVars[varKey];
-        
-        if (inputElement && savedValue !== null) {
-            // Afficher la valeur sauvegardée
-            inputElement.value = savedValue;
-        } else if (inputElement) {
-            inputElement.value = ""; // S'assurer qu'il est vide si aucune valeur n'est sauvegardée
-        }
-    };
+        // CAS 1: Champ vide
+        if (rawValue === "") {
+            validationMessage.textContent = "❌ Veuillez entrer une valeur numérique.";
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
+            return;
+        }
+        
+        // CAS 2: Validation Générale (Entier naturel positif entre 0 et 99)
+        if (isNaN(value) || value < 0 || value > 99 || rawValue.includes('.')) {
+            validationMessage.textContent = "❌ Valeur incorrecte. Veuillez entrer un nombre entier positif entre 0 et 99.";
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
+            return;
+        }
+
+        // CAS 3: Validation Spécifique (Nombre impair pour 'M')
+        if (varKey === 'M' && value % 2 === 0) {
+            validationMessage.textContent = "❌ Ce nombre doit être impair, vérifiez votre décompte !";
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
+            return;
+        }
+
+        // CAS 4: Succès - La valeur est valide
+        currentVars[varKey] = value;
+        saveEnigmaAnswers(currentVars);
+        
+        // Mise à jour du bouton pour indiquer la sauvegarde
+        button.classList.remove('btn-default');
+        button.classList.add('btn-validated');
+        button.textContent = `Réponse ${varKey} = ${value} Sauvegardée !`;
+    }
+
+    /**
+     * Réinitialise le bouton à son état par défaut (Gris).
+     */
+    function resetButtonToDefault(button) {
+        button.classList.remove('btn-validated');
+        button.classList.add('btn-default');
+        button.textContent = "Valider la réponse";
+    }
+    
+    /**
+     * Fonction d'initialisation : charge les données au chargement de la page et met à jour le bouton.
+     * @param {string} varKey - La lettre de la variable pour cette page (ex: 'M').
+     */
+    function initEnigmaPage(varKey) {
+        const loadedVars = loadEnigmaAnswers();
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button');
+        const savedValue = loadedVars[varKey];
+        
+        // 1. Vider l'input dans tous les cas au chargement 
+        if (inputElement) {
+            inputElement.value = "";
+        }
+        
+        // 2. Mettre à jour l'état du bouton si une valeur est trouvée dans la mémoire
+        if (button && savedValue !== null) {
+            button.classList.remove('btn-default');
+            button.classList.add('btn-validated');
+            button.textContent = `Réponse ${varKey} = ${savedValue} Sauvegardée !`;
+        } else if (button) {
+            // Si aucune valeur valide n'est sauvegardée, le bouton reste gris
+            resetButtonToDefault(button);
+        }
+        
+        // 3. Assurer que le bouton est réinitialisé si l'utilisateur commence à saisir
+        if(inputElement) {
+            // Utilisation de oninput pour réagir immédiatement aux changements de saisie
+            inputElement.oninput = () => resetValidation(varKey); 
+        }
+    };
 </script>
 
 </body>
