@@ -1,0 +1,1469 @@
+<!doctype html>
+<html lang='fr'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le trésor de Colomiers - Étapes 1-15</title>
+    
+    <style>
+        /* --- DESIGN GÉNÉRAL (IDENTIQUE) --- */
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            min-height: 100vh;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding-bottom: 40px;
+        }
+
+        /* Titre H1 supprimé des sections, H2 devient le titre de l'étape */
+        h2 {
+            font-size: 20px;
+            color: #2980b9;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-left: 5px solid #2980b9;
+            padding-left: 10px;
+        }
+        
+        /* --- NOUVEAU : CADRE D'INFORMATION (HEADER) --- */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+        
+        .info-box-header {
+            background-color: #fdfdfa;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 20px auto 0;
+            max-width: 600px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .info-box-header .main-title {
+            font-family: 'Dancing Script', 'Brush Script MT', 'cursive';
+            font-size: 36px;
+            color: #d35400;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .info-box-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+        .info-col-left img {
+            width: 130px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+        }
+        .info-col-middle {
+            text-align: center;
+            flex-grow: 1;
+        }
+        .info-col-middle .distance {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+        }
+        .info-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px; /* Resserré */
+        }
+        .info-icon {
+            font-size: 20px; /* Taille de l'émoji */
+            cursor: help;
+            background-color: #333; /* Fond noir */
+            color: #fff; /* Symbole blanc */
+            width: 32px; /* Carré */
+            height: 32px; /* Carré */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px; /* Coins légèrement arrondis */
+            line-height: 1;
+        }
+        .info-col-right {
+            text-align: right;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 500;
+            min-width: 90px;
+            white-space: nowrap; /* Empêche le saut de ligne */
+        }
+        .info-col-right strong {
+            color: #000;
+        }
+        
+        /* --- NOUVEAU : INFO PARKING --- */
+        .parking-info {
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .parking-info p {
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .parking-info h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 16px;
+        }
+        .parking-info ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .parking-info ul li {
+            margin: 5px 0;
+        }
+        .parking-info ul li a {
+            color: #2980b9;
+            font-weight: bold;
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+        }
+
+        /* --- STYLE : PRÉSENTATION DES PERSONNAGES (Étape 1) --- */
+        .character-presentation {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px 0;
+            border-bottom: 2px solid #eee;
+        }
+        .character-presentation p { font-size: 1.1em; color: #666; margin: 0 0 15px 0; font-weight: bold; }
+        .character-group { display: flex; justify-content: space-around; align-items: flex-start; flex-wrap: wrap; }
+        .character-item { display: flex; flex-direction: column; align-items: center; margin: 10px 5px; flex-basis: 30%; }
+        .character-icons { display: flex; margin-bottom: 5px; }
+        .badge-icon { width: 91px; height: 91px; border-radius: 50%; object-fit: cover; border: 3px solid #d35400; margin: 0 3px; }
+        .character-label { font-size: 0.85em; color: #d35400; font-weight: bold; margin-top: 5px; }
+        
+        /* --- STYLE DES DIALOGUES (IDENTIQUE) --- */
+        .dialogue-row { display: flex; align-items: flex-start; margin-bottom: 15px; }
+        .avatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc; flex-shrink: 0; margin-right: 15px; }
+        img[alt="Didier"] { border: 2px solid #2ecc71; }
+        .bubble { background-color: #e9eff5; padding: 12px 15px; border-radius: 0 15px 15px 15px; position: relative; font-size: 15px; line-height: 1.4; }
+        .bubble::before { content: ""; position: absolute; top: 0; left: -10px; width: 0; height: 0; border-top: 10px solid #e9eff5; border-left: 10px solid transparent; }
+        .name-tag { font-size: 11px; font-weight: bold; color: #666; margin-bottom: 4px; display: block; text-transform: uppercase; }
+
+        /* --- COORDONNÉES GPS --- */
+        .gps-box { text-align: center; margin: 20px 0; padding: 15px; background-color: #fff3cd; border-radius: 8px; border: 1px solid #ffeeba; }
+        .gps-link { display: inline-block; margin-top: 5px; color: #856404; font-weight: bold; text-decoration: none; border-bottom: 2px dotted #856404; font-family: 'Courier New', monospace; font-size: 1.1em; }
+        .gps-link:hover { background-color: #856404; color: white; }
+
+        /* --- ENCART "MISSION" (ORANGE - A à N) --- */
+        .mission-box { border: 3px dashed #d35400; background-color: #fffaf0; padding: 20px; margin: 30px 0; text-align: left; font-size: 15px; border-radius: 10px; color: #333; }
+        
+        /* --- ENCART "MISSION" (VERT - Etape 15) --- */
+        #etape15 .mission-box { border: 3px dashed #2ecc71; background-color: #f6fff6; }
+        #etape15 .mission-box h3 { color: #2ecc71; margin-top: 0; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 15px; }
+        
+        /* Zone de saisie du résultat (Style unifié) */
+        .answer-input-zone { display: flex; align-items: center; justify-content: center; margin: 15px 0 5px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #f8f9fa; }
+        .answer-input-zone label { font-weight: bold; margin-right: 10px; color: #d35400; }
+        #A-label, #B-label, #C-label, #D-label, #E-label, #F-label { color: #333; }
+        .answer-input-zone input { width: 50px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; text-align: center; font-size: 18px; font-weight: bold; }
+        
+        /* Boutons de validation (Spécifiques A-J) */
+        #validate-button-A, #validate-button-B, #validate-button-C,
+        #validate-button-D, #validate-button-E, #validate-button-F,
+        #validate-button-G, #validate-button-H, #validate-button-I,
+        #validate-button-J {
+            display: block; width: 100%; padding: 12px; margin-top: 15px; border: none; border-radius: 5px;
+            font-weight: bold; font-size: 16px; cursor: pointer; transition: background-color 0.2s, color 0.2s;
+        }
+        
+        /* Bouton de validation (Générique L, M, N) */
+        /* Etape 13 et 14 utilisent un ID unique pour le bouton */
+        #validate-button-M, #validate-button-N {
+            display: block; width: 100%; padding: 12px; margin-top: 15px; border: none; border-radius: 5px;
+            font-weight: bold; font-size: 16px; cursor: pointer; transition: background-color 0.2s, color 0.2s;
+        }
+
+        /* Styles du bouton (Unifiés) */
+        .btn-default { background-color: #bdc3c7; color: #34495e; }
+        .btn-validated { background-color: #e67e22; color: white; }
+        .btn-default:hover { background-color: #ccd1d1; }
+
+        /* Messages de validation (Spécifiques A-J) */
+        #validation-message-A, #validation-message-B, #validation-message-C,
+        #validation-message-D, #validation-message-E, #validation-message-F,
+        #validation-message-G, #validation-message-H, #validation-message-I,
+        #validation-message-J {
+            margin-top: 5px; font-size: 14px; font-weight: bold; color: #e74c3c; min-height: 20px; text-align: center;
+        }
+
+        /* Message de validation (Générique L, M, N) */
+        #validation-message-L, #validation-message-M, #validation-message-N {
+            margin-top: 5px; font-size: 14px; font-weight: bold; color: #e74c3c; min-height: 20px; text-align: center;
+        }
+
+        /* --- ENCART "DIRECTION" (GRIS/NEUTRE) --- */
+        .direction-box { background-color: #f8f9fa; border-left: 6px solid #95a5a6; padding: 15px 20px; margin-top: 40px; color: #555; font-style: italic; font-size: 15px; }
+        .direction-box strong { color: #333; font-weight: bold; font-style: normal; }
+        .direction-box .path-option { margin-top: 10px; }
+        .direction-box .path-link { color: #2980b9; text-decoration: none; border-bottom: 1px dotted #2980b9; }
+        
+        /* Petite classe pour les descriptions narratives (actions, sons) */
+        .narrative-note { text-align: center; font-style: italic; color: #888; font-size: 13px; margin: 15px 0; }
+
+        /* --- IMAGE D'ILLUSTRATION (Spécifique aux étapes 2, 6, 7, 8) --- */
+        .illustration-grande { max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: block; }
+        .image-link { display: block; text-align: center; margin: 20px 0; }
+        
+        /* --- Styles spécifiques (Etape 10, 11, 13) --- */
+        .stacked-avatars-visible { position: relative; width: 80px; height: 50px; flex-shrink: 0; margin-right: 15px; }
+        .stacked-avatars-visible .avatar-left { position: absolute; top: 0; left: 0; z-index: 2; width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc; }
+        .stacked-avatars-visible .avatar-right { position: absolute; top: 0; left: 30px; z-index: 1; width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc; }
+
+        /* Styles pour les options à choix multiple (Etape 11) */
+        .mission-options { margin-top: 15px; font-weight: normal; }
+        .mission-options label { display: block; margin: 5px 0; font-weight: normal; cursor: pointer; }
+        .mission-options input[type="radio"] { margin-right: 8px; }
+        #validation-message-K { margin-top: 10px; font-size: 14px; font-weight: bold; color: #2ecc71; min-height: 20px; text-align: center; }
+        #validation-message-K.error { color: #e74c3c; }
+        
+        /* --- STYLES ETAPE 15 --- */
+        #variable-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px; }
+        .variable-item { display: flex; flex-direction: column; align-items: center; padding: 8px 10px; background-color: #eee; border-radius: 5px; font-weight: bold; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .variable-reminder { font-size: 11px; color: #666; margin-bottom: 5px; font-weight: normal; text-transform: uppercase; letter-spacing: 0.5px; width: 100%; border-bottom: 1px dotted #ccc; padding-bottom: 3px; min-height: 15px; }
+        .variable-input-row { display: flex; align-items: center; justify-content: center; width: 100%; margin-top: 5px; }
+        .variable-item input { width: 45px; padding: 4px; text-align: center; font-weight: bold; border: 1px solid #ccc; border-radius: 3px; margin-left: 5px; }
+        
+        .status-dot { height: 10px; width: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; }
+        .dot-green { background-color: #2ecc71; }
+        .dot-red { background-color: #e74c3c; }
+        .legend p { margin: 5px 0; font-size: 14px; }
+
+        .final-formula-display { font-family: 'Courier New', monospace; font-size: 20px; font-weight: bold; text-align: center; background-color: #fff; border: 2px solid #2ecc71; padding: 15px; border-radius: 8px; margin-bottom: 20px; line-height: 1.5; overflow-x: auto; color: #34495e; white-space: nowrap; }
+        
+        .final-check-zone { display: flex; flex-direction: column; align-items: center; padding: 15px; border: 1px solid #ccc; border-radius: 5px; background-color: #f8f9fa; }
+        .final-check-zone button { margin-top: 15px; padding: 12px 25px; background-color: #d35400; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; font-weight: bold; box-shadow: 0 4px #a04000; transition: all 0.1s; }
+        .final-check-zone button:active { box-shadow: 0 1px #a04000; transform: translateY(3px); }
+        #result-message { margin-top: 15px; font-weight: bold; min-height: 20px; text-align: center; padding: 10px; border-radius: 5px; }
+        #final-link-box { margin-top: 15px; display: none; text-align: center; padding: 15px; background-color: #e8f5e9; border: 1px solid #2ecc71; border-radius: 8px; }
+        
+        /* Message d'avertissement pour l'Etape 15 */
+        #warning-etape15 {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px; 
+            text-align: center; 
+            background-color: #fff3cd; 
+            border: 1px solid #ffeeba; 
+            border-radius: 8px; 
+            color: #856404;
+        }
+        #warning-etape15 h2 { color: #856404; border-left: none; padding-left: 0; margin-top: 0; }
+
+    </style>
+</head>
+<body>
+
+<div class="info-box-header">
+    <h1 class="main-title">Le trésor de Colomiers</h1>
+    <div class="info-box-content">
+        <div class="info-col-left">
+            <img src="Colomiers.jpg" alt="Image de Colomiers">
+        </div>
+        <div class="info-col-middle">
+            <div class="distance">3 km</div>
+            <div class="info-icons">
+                <span class="info-icon" title="Faisable à pied">🚶</span>
+                <span class="info-icon" title="Faisable en vélo">🚲</span>
+                <span class="info-icon" title="Faisable en poussette">🛒</span> <span class="info-icon" title="Animaux de compagnie autorisés">🐶</span>
+                <span class="info-icon" title="Prévu pour les enfants">👪</span> <span class="info-icon" title="Accessible 24/7">🏪</span>
+                <span class="info-icon" title="Eau potable à proximité">💧</span>
+            </div>
+        </div>
+        <div class="info-col-right">
+            <strong>Difficulté :</strong> 2 / 5<br>
+            <strong>Terrain :</strong> 1.5 / 5
+        </div>
+    </div>
+</div>
+
+<div class="parking-info">
+    <p>Le stationnement est gratuit sur l’intégralité de la ville de Colomiers. N’hésitez pas à vous garer aux alentours si les parking sont pleins.</p>
+    <h3>Parkings à proximité :</h3>
+    <ul>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=43.613383,1.337067" target="_blank">N 43° 36.803' E 001° 20.224'</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=43.614267,1.337667" target="_blank">N 43° 36.856' E 001° 20.260'</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=43.613783,1.336983" target="_blank">N 43° 36.827' E 001° 20.219'</a></li>
+    </ul>
+</div>
+
+<section id="etape1" class="etape">
+<div class="container">
+    
+    <div class="character-presentation">
+        <p>Une aventure de :</p>
+        <div class="character-group">
+            <div class="character-item">
+                <div class="character-icons"> <img src="badge loumpour.png" alt="Loumpour" class="badge-icon"> </div>
+                <span class="character-label">La koala</span>
+            </div>
+            <div class="character-item">
+                <div class="character-icons"> <img src="badge bernard.png" alt="Bernard" class="badge-icon"> <img src="badge serge.png" alt="Serge" class="badge-icon"> </div>
+                <span class="character-label">Les lamas jumeaux</span>
+            </div>
+            <div class="character-item">
+                <div class="character-icons"> <img src="badge didier.png" alt="Didier" class="badge-icon"> </div>
+                <span class="character-label">Le bourdon</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Mais qu’est-ce qu’elle fait ?! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Tu lui as bien dit pour le trésor ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Mais bien sûr !! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Ah ! La voilà. </div> </div>
+
+    <h2>1. Point de départ : la porte du château des Raspaud</h2>
+
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.614483,1.3377" target="_blank" class="gps-link">
+            N 43° 36.869' E 001° 20.262'
+        </a>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Salut les jumeaux ! Bon, c’est quoi cette histoire de trésor ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> C’est Didier qui nous a prévenus. Il a dit qu’il avait trouvé le trésor qui avait fait la richesse de Colomiers depuis des siècles. On va être riches nous aussi ! </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Et il est où Didier ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> On sait pas ! Il est pas encore arrivé. Il nous a donné rendez-vous dans les parages. </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Il devrait pas tarder. On a qu’à commencer sans lui ! </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Ok, mais on commence par quoi ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Ben, par lire le panneau, non ? </div> </div>
+
+    <div class="mission-box">
+        Sur le panneau à droite de la porte vous trouverez la réponse à cette question : combien le château comptait-il de tours à encorbellement avant sa destruction ? Notez ce chiffre qui vaut A. 
+        <div class="answer-input-zone"> <label for="A" id="A-label">A =</label> <input type="number" id="A" min="0" max="99" required oninput="resetStandardInput('A')"> </div>
+        <div id="validation-message-A"></div>
+        <button id="validate-button-A" class="btn-default" onclick="handleStandardValidation('A')"> Valider la réponse </button>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Un tunnel secret : Vous avez raisons les lamas, je commence à croire que Didier ne nous a pas menti… Simplement maintenant que le château est détruit, cela ne nous avance pas à grand-chose. </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Le panneau dit qu’il y a un autre tunnel du côté de l’église, c’est peut-être là-bas qu’est enterré le trésor ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> De toute façon on n’a pas d’autres pistes. Direction l’église ! </div> </div>
+    <div class="direction-box"> Descendez à présent la rue du Couderc sur une centaine de mètres en direction de la place Firmin Pons. </div>
+</div>
+</section>
+<section id="etape2" class="etape">
+<div class="container">
+    <h2>2. Place Firmin Pons, terminus, tout le monde descend !</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.613556,1.337111" target="_blank" class="gps-link">
+            N 43° 36.813' E 001° 20.227'
+        </a>
+    </div>
+
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Tiens regarde cette place Serge, elle te dit rien ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Ben non, une place ça parle pas ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Idiot ! On a vu une photo dans notre vieux livre d’histoire de Colomiers. C’est de là que partait le tramway il y a plus de cent ans. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Ah, oui ! C’est vrai. Firmin Pons, surnommé « l’empereur Pons », il était considéré comme le créateur des transports en communs toulousains. </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Sur la photo il y avait plein de boutiques sur cette place. C’était le premier centre ville de Colomiers qui reliait depuis la Révolution les trois rues principales de Colomiers : la rue du Prat, la rue du Couderc et la rue de l’église. </div> </div>
+    <a href="Pons.jpg" target="_blank" class="image-link"> <img src="Pons.jpg" alt="Place Firmin Pons ancienne" class="illustration-grande"> </a>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Ben dis donc les frangins, vous avez bossé avant de venir. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Bossé ?? Tu nous as pris pour des dromadaires ?? </div> </div>
+
+    <div class="mission-box">
+        Beaucoup de maisons d’époques ont disparu en un siècle, certaines effondrées, d’autres détruites. Pour autant il reste quelques vieilles toulousaines. Aux numéros 6 à 8 de la place se trouvent deux maisons avec des ouvertures en losanges juste au-dessous du toit. Combien de ces losanges comptez-vous en additionnant ceux des deux maisons ?
+        <div class="answer-input-zone"> <label for="B" id="B-label">B =</label> <input type="number" id="B" min="0" max="99" required oninput="resetStandardInput('B')"> </div>
+        <div id="validation-message-B"></div>
+        <button id="validate-button-B" class="btn-default" onclick="handleStandardValidation('B')"> Valider la réponse </button>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Bon allez, faut pas qu’on traine plus longtemps, direction l’église. </div> </div>
+    <div class="direction-box"> Remontez la rue de l'église sur 100m en passant par la passerelle. Profitez-en pour jeter un oeil à votre gauche sur le rond-point "Flandres-Dunkerke" dont nous reparlerons ultérieurement. </div>
+</div>
+</section>
+<section id="etape3" class="etape">
+<div class="container">
+    <h2>3. Les reliques de Sainte Radegonde</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.612810,1.339280" target="_blank" class="gps-link">
+            N 43° 36.769' E 001° 20.357'
+        </a>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Radegonde… jamais entendu ce nom-là. Ca vient d’où d’après vous ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Poitiers ! Sainte Radegonde a été Reine des Francs au VIème siècle. Femme de Clotaire, un des fils de Clovis, elle a toujours refusé le faste de la Cour, refusant de porter de riches habits et pratiquant le jeûne à la table royale pour faire exemple d’humilité. Après que Clotaire eut assassiné son frère, elle décida de fuir ce meurtrier et se fit moniale pour qu’il n’ait plus de pouvoir sur elle. Elle fondera par la suite l’Abbaye de Poitiers. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> T’as appris tout ça avant de venir à Colomiers ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Non, mais j’ai internet sur mon téléphone. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> OK, mais alors qu’est-ce qu’elle a à voir avec Colomiers ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ses reliques auraient été apportées à Colomiers par Alphonse de Poitiers, comte de Toulouse. Une phalange et trois os du poignet. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Ah, toi aussi t’as la 5G. </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Nope, moi j’ai lu le panneau qui était sur la porte… </div> </div>
+
+    <div class="mission-box">
+        Sur le panneau qui se trouve à droite de la porte de l’église, il est écrit que « _83 citoyens actifs de la commune ont été convoqués le 7 février 1790 ». Relevez le chiffre des centaines qui vaut C.
+        <div class="answer-input-zone"> <label for="C" id="C-label">C =</label> <input type="number" id="C" min="0" max="99" required oninput="resetStandardInput('C')"> </div>
+        <div id="validation-message-C"></div>
+        <button id="validate-button-C" class="btn-default" onclick="handleStandardValidation('C')"> Valider la réponse </button>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Bon, ok. Les gens venaient sûrement à Colomiers pour les reliques, mais ça peut pas être ça le « trésor » qui va nous rendre riches. Il a rien dit d’autre sur le trésor Didier ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ben il a dit que c’était il y a très longtemps, et il avait l’air de dire que c’était un truc assez commun. Pas une phalange ou trois os du poignet d’une Sainte, ça c’est sûr. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Et alors on fait quoi, là ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> On fait koala ? Ben t’es la mieux placée pour nous le dire. </div> </div>
+    <div class="narrative-note"> [Serge et Bernard rient comme des idiots] </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Vous êtes bêtes ! Réfléchissons, y avait quoi y a… je sais pas moi… cent ans ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> <i>(grave)</i> La guerre. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> mmm… la guerre. Ca peut pas être ça le trésor. Mais on est à côté du Monument aux Morts, allons voir ça nous donnera peut-être des idées. </div> </div>
+    <div class="direction-box"> Dirigez vous vers la droite de l'église pour aller jusqu'au Monument aux morts. </div>
+</div>
+</section>
+<section id="etape4" class="etape">
+<div class="container">
+    <h2>4. Le Monument aux Morts</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.612380,1.339374" target="_blank" class="gps-link">
+            N 43° 36.743' E 001° 20.362'
+        </a>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> On dirait que c’est tout neuf ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Yep ! Ils disent sur le site de la mairie que ça a été inauguré le 8 mai 2025. Avant il y avait deux Monuments aux Morts : un pour la guerre 1914-1918, et un autre à l’ancien cimetière pour les autres guerres. Les éléments en métal du premier Monument ont été ajoutés sur le marbre rose du deuxième Monument. Impressionnant, on croirait presque qu’il a été conçu comme ça. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Tiens, tous ces noms ça me rappelle un truc que j’ai lu sur la ville. Il paraît que jusqu’en 1936, la ville de Colomiers n’a jamais compté plus de 1.900 habitants. En revanche en moins de 100 ans la population a été multipliée par 20, puisque Colomiers compte aujourd’hui plus de 41.000 habitants. A voir la proportion de columérins morts lors de la première guerre mondiale, on aurait pu croire le contraire. </div> </div>
+
+    <div class="mission-box">
+        Sur le Monument aux Morts, combien de fois le prénom « Jean » apparait-il ? Faites bien le tour sur les trois faces et ne tenait compte ni des doubles prénoms, ni des prénoms composés. C’est un chiffre impair. Notez ce nombre qui vaut D.
+        <div class="answer-input-zone"> <label for="D" id="D-label">D =</label> <input type="number" id="D" min="0" max="99" required oninput="resetStandardInput('D')"> </div>
+        <div id="validation-message-D"></div>
+        <button id="validate-button-D" class="btn-default" onclick="handleStandardValidation('D')"> Valider la réponse </button>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Très émouvant. Mais on n’est pas plus avancés dans notre quête. Eh ! regardez cette porte en brique là-bas, on dirait la même que celle du château. Vous croyez que c’est la sortie du souterrain ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Nope ! C’est l’entrée du parc Duroch. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Du rock ! Trop bien, faut qu’on y aille ! </div> </div>
+    <div class="narrative-note"> [il fonce en direction du parc] </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour et Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour & Bernard</span> Non ! Duroch, ça s’écrit pas pareil ! Attends-nous. </div> </div>
+    <div class="direction-box"> Remontez la rue Gilet sur quelques mètres. Vous pouvez entrer dans le parc par la porte monumentale ou par n'importe quel endroit. </div>
+</div>
+</section>
+<section id="etape5" class="etape">
+<div class="container">
+    <h2>5. Le parc Duroch</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.611114,1.340267" target="_blank" class="gps-link">
+            N 43° 36.667' E 001° 20.416'
+        </a>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Ouahou ! C’est beau. Ces arbres sont au moins centenaires. Ca ressemblait à ça Colomiers à l’époque ! Un petit village en pleine nature ! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Ben, il est où le concert ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Il est pour les estivades, début juillet. C’est aussi ici qu’a lieu le cinéma en plein air en juillet et août. Ce sont les rares moments où tu pourras y entendre de la musique. Sinon il y a aussi la foire aux plantes en mars, et la chasse aux œufs de Pâques. Mais généralement ce sont plutôt les boulistes qui s’y donnent rendez-vous, ainsi que les familles. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Les boulistes. Tu veux dire « les pétanqueurs » (clin d’œil à son frère). </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Non les gars arrêtez ! </div> </div>
+    <div class="narrative-note"> Serge : [prout] </div>
+    <div class="narrative-note"> Bernard : [prout] </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Rhôô…Vous êtes lourds ! </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> C’est quoi cette petite rotonde au milieu ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> La potinière. Aujourd’hui c’est une salle associative servant à de nombreuses activités. Un rumeur dit qu’une potinière était à l’origine un lieu où les gens venaient se raconter des potins. Aucune idée de si c’est vrai ou pas… </div> </div>
+
+    <div class="mission-box">
+        La potinière est soutenue par des arches en métal. Combien en comptez vous sur le bâtiment ?
+        <div class="answer-input-zone"> <label for="E" id="E-label">E =</label> <input type="number" id="E" min="0" max="99" required oninput="resetStandardInput('E')"> </div>
+        <div id="validation-message-E"></div>
+        <button id="validate-button-E" class="btn-default" onclick="handleStandardValidation('E')"> Valider la réponse </button>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Et si c’était ça le trésor de Colomiers ? la douceur de vivre à l’ombre des pins parasols ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Eh non, fatche de cagole, tu confonds pitchoun, ça c’est le trésor de Marseille, peuchère ! </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Vous en ratez pas une, hein ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Regardez, y a un plan ici qui dit que l’ancien Hôtel de Ville est à quelques mètres d’ici. On trouvera peut-être un truc… </div> </div>
+    <div class="direction-box"> Poursuivez sur la rue Gilet en laissant la rue Chrestias à votre gauche. Quelques mètres plus loin tournez à gauche sur la place Joseph Verseille. </div>
+</div>
+</section>
+<section id="etape6" class="etape">
+<div class="container">
+    <h2>6. Place Joseph Verseille</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.609642,1.339603" target="_blank" class="gps-link">
+            N 43° 36.579' E 001° 20.376'
+        </a>
+    </div>
+
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Joseph Verseille… j’ai déjà lu ce nom quelque part… Mais où ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> J’aurais bien une réponse à te faire, mais ça va pas te plaire… </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Bon, les gars, on peut redevenir un peu sérieux. Regardez cette photo : nous sommes sur l’ancienne place du village. Il est dit que c’est là que les columérins se rassemblaient pour les grandes fêtes. Des tables étaient dressées et on y partageait des repas avec tous les habitants. </div> </div>
+    <a href="Verseille.jpg" target="_blank" class="image-link"> <img src="Verseille.jpg" alt="Ancienne place du village Place Joseph Verseille" class="illustration-grande"> </a>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ca va bien quand t’es quelques centaines, mais tu rentreras pas 40.000 personnes sur cette petite place ! </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Moi je crois que c’est ça le trésor de Colomiers. La dolce vita. Simplement le bonheur de vivre en paix. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Euh, les gars, ça y est, je me suis souvenu d’où je connais le nom de Joseph Verseille. Il était sur le monument aux morts, dans les F. F. I. J’ai trouvé un article qui raconte la libération de Colomiers. Le 19 août 1944, 300 soldats allemands quittent la ville en faisant sauter les avions en réparation, les dépôts de bombes, incendient des gerbiers et brûlent des caisses d’archives à la Mairie. C’est dans ce chaos qu’arrivera le décès accidentel de Joseph Verseille sur les marches de la Mairie. </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ouaip. Tu repasseras quand même pour la Dolce Vita. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Gloups. Bon, ben faut chercher un autre trésor. Peut-être à la nouvelle mairie ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> De toute façon, tant qu’on n’a pas de nouvelles de Didier, on peut continuer la balade… </div> </div>
+
+    <div class="mission-box">
+       Le bâtiment de l’ancien Hotel de Ville a été conservé et restauré. Il est devenu un lieu municipal qui accompagne les porteurs de projets dans la création professionnelle. Combien de lettres composent ce nom féminin commençant par la lettre M (sans compter le déterminant) ?
+        <div class="answer-input-zone"> <label for="F" id="F-label">F =</label> <input type="number" id="F" min="0" max="99" required oninput="resetStandardInput('F')"> </div>
+        <div id="validation-message-F"></div>
+        <button id="validate-button-F" class="btn-default" onclick="handleStandardValidation('F')"> Valider la réponse </button>
+    </div>
+    <div class="direction-box"> En poursuivant de nouveau sur la rue Gilet vous arriverez au bout de la rue à votre prochaine étape. </div>
+</div>
+</section>
+<section id="etape7" class="etape">
+<div class="container">
+    <h2>7. Place de la bascule</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.608117,1.338857" target="_blank" class="gps-link">
+            N 43° 36.487' E 001° 20.331'
+        </a>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Place de la bascule… Ben je la vois pas, moi la bascule… </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> C’est normal, elle n’est plus là depuis plus de 50 ans. Mais c’est là que les columérins venaient peser leurs récoltes à la fin du XIXème siècle. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Tiens, j’ai trouvé une vieille photo. Elle était là, derrière la croix en métal. </div> </div>
+    <a href="bascule.jpg" target="_blank" class="image-link"> <img src="bascule.jpg" alt="Ancienne bascule de Colomiers" class="illustration-grande"> </a>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Euh, les gars… je me demande si je viens pas de trouver le trésor ! Mais, ça me parait pas très légal… Didier vous a pas demandé de braquer des banques quand même ??!! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Meuuh non ! T’es fou ! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Tiens, tu parles vache maintenant toi ! Je savais pas ! </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Bon réfléchissons, qu’est-ce qui a pu faire la singularité de Colomiers et apporter richesse et prospérité à ses habitants ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Le fromage ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Non, ça c’est le Coulommiers ! Rien à voir ! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Les chocolatines ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Non, ça c’est tout le Sud-Ouest. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Continuons, on trouvera peut-être en chemin. </div> </div>
+
+    <div class="mission-box">
+       Avant de quitter la place de la bascule, attardez vous un peu sur la stèle à la mémoire de François Larieu. Quel jour de juillet 1926 est-il né ? Notez ce chiffre qui vaut G 
+        <div class="answer-input-zone"> <label for="G">G =</label> <input type="number" id="G" min="0" max="99" required oninput="resetStandardInput('G')"> </div>
+        <div id="validation-message-G"></div>
+        <button id="validate-button-G" class="btn-default" onclick="handleStandardValidation('G')"> Valider la réponse </button>
+    </div>
+
+    <div class="direction-box"> Quittez la place de la bascule en prenant la rue d'Auch en direction de la cabane du pêcheur (poissonnier) puis continuez jusqu'à l'abri bus et retournez vous vers l'endroit d'où vous venez. </div>
+</div>
+</section>
+<section id="etape8" class="etape">
+<div class="container">
+    <h2>8. Fresque murale</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.607980,1.336761" target="_blank" class="gps-link">
+            N 43° 36.479' E 001° 20.206'
+        </a>
+    </div>
+
+        <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Ouhaou. Retournez-vous et regardez ça ! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Génial. C’est trop rigolo. </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ah, ben, c’est pas ça notre trésor ? L’art ! Ca a toujours existé. Et des fresques comme ça il y en a plein dans Colomiers, sur les immeubles, les transformateurs électriques, dans les écoles… </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Et il y a aussi le salon de la Bande Dessinée tous les mois de novembre à Colomiers depuis plus de 40 ans. C’est le troisième plus grand festival de France derrière Angoulème et Quai des Bulles à Saint Malo. </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ouaip ! 20.000 visiteurs annuels, c’est pas rien… </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Tu crois que Didier veut qu’on se mette au graff ? Ou à la BD ? Je comprends pas bien là… Y doit y avoir un autre truc qui fait la renommée de la ville… C’est pas possible autrement. </div> </div>
+
+    <div class="mission-box">
+        Avant de poursuivre votre route, observez-bien la fresque murale. Combien le personnage (à droite) avec les lunettes de soleil triangulaire a-t-il de dents ? Notez ce chiffre qui vaut H.
+        <div class="answer-input-zone"> <label for="H">H =</label> <input type="number" id="H" min="0" max="99" required oninput="resetStandardInput('H')"> </div>
+        <div id="validation-message-H"></div>
+        <button id="validate-button-H" class="btn-default" onclick="handleStandardValidation('H')"> Valider la réponse </button>
+    </div>
+
+    <div class="direction-box"> Continuez la route d'Auch jusqu'àu rond-point, en suivant le passage aménagé qui descend. Attention, ne traversez pas le rond-point par la voie des voitures. Prenez le passage souterrain qui vous amènera au bon endroit en sécurité. <br> <br> Si vous êtes en vélo, merci de descendre de vélo pour quelques mètres. </div>
+</div>
+</section>
+<section id="etape9" class="etape">
+<div class="container">
+    <h2>9. Rond-point fontaine</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.608606,1.336124" target="_blank" class="gps-link">
+            N 43° 36.516' E 001° 20.167'
+        </a>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Bon, qu’est-ce qu’on fait ici maintenant ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Tu cherchais quelque chose qui a fait la renommée publique de Colomiers ? Ben voilà… </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Une fontaine ? Non, je vois pas. </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Mais non, pas une fontaine, un rond-point ! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> La ville en compte presque une centaine, soit un tous les 500m en moyenne… et pas un seul feu rouge ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Dans les années 1950, Colomiers doit faire face à l’arrivée massive des ouvriers de la construction aéronautique. La ville fait alors appel à l’architecte-urbaniste René Viguier pour concevoir un plan d’urbanisme permettant d’accueillir jusqu’à 30.000 habitants. Il s’inspire de nouvelles villes anglaises comme Harlow et trace des grands boulevards reliés par des ronds-points. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Sauf qu’à cette époque, Colomiers est une des premières villes de France à avoir des ronds-points. Et le code de la route ne prévoit pas ce type d’équipements. On y applique donc la règle de la priorité à droite, ce qui signifie que ceux qui rentrent sur le rond-point sont prioritaires sur ceux qui sont sur l’anneau… </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Mais ça devait être super dangereux ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Pour les columérins qui savaient, non, mais pour les autres, oui. A la fin des années 90, il y avait pas mal d’accrochages. Le conseil municipal a donc voté le changement et depuis octobre 2002 la priorité est la même que partout en France. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Mais pendant plus de 50 ans, la ville a fonctionné différemment, et sur plusieurs dizaines de ronds-points. Qu’est-ce que tu dis de ça. Toi qui cherchais un truc qui a fait la renommée de la ville ? </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> (déçue) OK, mais… c’est pas un trésor ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Bon, ben continuons alors… </div> </div>
+
+    <div class="mission-box">
+        Si vous avez la fontaine dans votre dos, depuis l’endroit où vous vous trouvez, combien de fois pouvez-vous apercevoir l’écriteau « eau non potable » (c’est un chiffre pair) ?
+        <div class="answer-input-zone"> <label for="I">I =</label> <input type="number" id="I" min="0" max="99" required oninput="resetStandardInput('I')"> </div>
+        <div id="validation-message-I"></div>
+        <button id="validate-button-I" class="btn-default" onclick="handleStandardValidation('I')"> Valider la réponse </button>
+    </div>
+
+    <div class="direction-box"> Continuez votre route en ressortant de l'autre côté du rond-point et continuez sur l'allée des droits de l'enfant jusqu'au point suivant. </div>
+</div>
+</section>
+<section id="etape10" class="etape">
+<div class="container">
+    <h2>10. Le pavillon blanc</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.609498,1.334816" target="_blank" class="gps-link">
+            N 43° 36.570' E 001° 20.089'
+        </a>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> C’est quoi ce bâtiment étrange devant lequel on vient de passer ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Le pavillon blanc. D’après le site de la Mairie, il a été conçu par Rudy Riccioti en 2011. Il permet de réunir un espace médiathèque (plus de 110.000 ouvrages) et un espace dédié à l’art contemporain. Je me souviens que Colomiers a toujours été une ville motrice en termes d’art contemporain. Il y avait une galerie à quelques pas d’ici qui s’appelait « l’espace des arts » où étaient présentées des expositions temporaires. Elle est aujourd’hui occupée par une compagnie de théâtre qui fait aussi de la création contemporaine. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Et ça date pas d'hier. En 1982, Pierre Debeaux, connu pour être l’architecte de la caserne Vion à Toulouse, avait été choisi pour construire sur le rond-point de Flandres-Dunkerke une structure métallique gigantesque en trois dimensions. Un peu à la façon d’un mobile de Calder, elle bougeait au gré du vent. Elle s’est malheureusement écroulée 5 ans après son installation tuant deux personnes, qui étaient venues pour tenter de la réparer car elle ne bougeait plus. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Gloups… Euh, vous avez rien de plus joyeux ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ah, ben si ! Colomiers est également labélisée “ville amie des enfants” par l’UNICEF depuis 2009 et renouvelé au moins jusqu’en 2026. Elle s’engage au bien-être, à la non-discrimination et à la participation des enfants dans la vie culturelle, politique et sportive. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Eh, mais voilà ! On l’a notre trésor : les enfants ! C’est vieux comme le monde, et ils sont tellement mignons… </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Ben si c’est ça ton trésor, moi j’en veux pas ! Beurk ! Ca bave, ça crie ! Non merci ! </div> </div>
+
+    <div class="mission-box">
+        Sur la mosaïque à vos pieds, combien d’enfants sont représentés en tout ? (attention, la colombe ne compte pas, c’est juste l’emblème de la ville)
+        <div class="answer-input-zone"> <label for="J">J =</label> <input type="number" id="J" min="0" max="99" required oninput="resetStandardInput('J')"> </div>
+        <div id="validation-message-J"></div>
+        <button id="validate-button-J" class="btn-default" onclick="handleStandardValidation('J')"> Valider la réponse </button>
+    </div>
+
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Euh, puisqu’on parlait art contemporain, c’est pas le centre Pompidou là à gauche ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Beaubourg ? Non, c’est à Paris. Mais effectivement c’est quoi ce gros tube vert qui sort du toit ? </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Il y a écrit « espace nautique », ça doit être un toboggan aquatique… </div> </div>
+    <div class="dialogue-row">
+        <div class="stacked-avatars-visible"> <img src="Serge.jpg" alt="Serge" class="avatar-left"> <img src="Bernard.jpg" alt="Bernard" class="avatar-right"> </div>
+        <div class="bubble"> <span class="name-tag">Serge et Bernard</span> Un toboggan ! Géniaaaallll !! On y vaaaa…. </div>
+    </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Mais attendez moi… </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> (à elle-même) Rhooo ils sont pénibles ! </div> </div>
+    <div class="direction-box"> Prenez le premier chemin à gauche, traversez la mare aux canards, passez devant l’espace nautique et poursuivez jusqu’au fond de la place des fêtes pour mieux voir le toboggan. </div>
+</div>
+</section>
+<section id="etape11" class="etape">
+<div class="container">
+    <h2>11. L’espace nautique</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.608177,1.332450" target="_blank" class="gps-link">
+            N 43° 36.491' E 001° 19.947'
+        </a>
+    </div>
+
+    <div class="dialogue-row">
+        <div class="stacked-avatars-visible"> <img src="Serge.jpg" alt="Serge" class="avatar-left"> <img src="Bernard.jpg" alt="Bernard" class="avatar-right"> </div>
+        <div class="bubble"> <span class="name-tag">Serge et Bernard</span> … </div>
+    </div>
+    <div class="narrative-note"> (en pamoison devant le toboggan) </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Ah ben, ça au moins ça vous en bouche un coin (coin). Ca va peut-être vous étonner, mais côté sport, je pense que j’en connais plus que vous ! Colomiers est une super ville connue dans le monde entier pour ses performances sportives. L’USC Colomiers Rugby a remporté le challenge européen en 1998 et a même été vice champion d’Europe en 1999 et finaliste du championnat de France en 2000 ! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Ouais, mais ça vaut pas les performances du Stade Toulousain. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Peut-être mais pour une ville dix fois plus petite ça claque. Et en plus le Colomiers Rugby a aussi formé de grands joueurs internationaux : Jean-Luc Sadourny, les Skrela père et fils, et puis Fabien Galthié actuel sélectionneur de l’équipe de France ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ok, ok, mais t’as dis « le monde entier ». Les joueurs ne sont pas connus pour leur ville, mais pour le pays qu’ils représentent. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Peut-être, mais qu’est-ce que tu dis de ça ? En 2022, 9 adolescents issus de Breakin’School, l’école de breakdance de Colomiers ont été sacrés Champions du Monde de breakdance au Japon ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ouahou, la classe ! Mais en attendant, c’est plutôt embêtant… </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Je vois pas pourquoi. </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ben parce que ça nous fait un trésor de plus ! Le sport aussi ça existe depuis toujours… Alors, c’est quoi qu’on cherche ? Un coffre plein d’or caché dans un sous-terrain ? Les reliques d’une sainte ? La douceur de vivre ? De l’art (contemporain ou pas) ? Des ronds points ? Des enfants ? Je sais plus moi ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Serge ! Il en est où Didier ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Je sais pas, je vais lui demander… </div> </div>
+
+    <div class="mission-box">
+        Avant de quitter le parking, comptez du mieux que vous pourrez le nombre de tronçons de toboggan que vous voyez (certains sont cachés par la végétation ou les murs, ce n’est pas grave). <br> Combien en comptez-vous à peu près ?
+        <div class="mission-options" onchange="handleQCMInput('K')">
+            <label><input type="radio" name="K_choice" id="option1" value="1"> 1) une dizaine</label>
+            <label><input type="radio" name="K_choice" id="option2" value="2"> 2) une vingtaine</label>
+            <label><input type="radio" name="K_choice" id="option3" value="3"> 3) une quarantaine</label>
+        </div>
+        <br> Notez le chiffre correspondant à la bonne réponse qui vaut K :
+        <div class="answer-input-zone"> <label for="K">K =</label> <input type="number" id="K" min="1" max="3" required readonly> </div>
+        <div id="validation-message-K"></div>
+        <br> (indice supplémentaire : si vous multipliez ce chiffre par 5 vous saurez combien de mètres environ fait la longueur du toboggan !)
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Bon allez, de toute façon, on avait dit direction la mairie. C’est parti ! </div> </div>
+    <div class="direction-box"> Repassez devant l’entrée de l’espace nautique, poursuivez en face de vous en laissant l’aire de jeux et le city stade à votre gauche puis tournez à gauche au niveau du kiosque pour arriver devant l’ancienne gare. </div>
+</div>
+</section>
+
+<section id="etape12" class="etape">
+<div class="container">
+    <h2>12. L’ancienne gare</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.609695,1.332806" target="_blank" class="gps-link">
+            N 43° 36.582' E 001° 19.968'
+        </a>
+    </div>
+
+    <div class="narrative-note"> Bzzzt ! Bzzt ! </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Ah, c’est Didier, il dit qu’il arrive rue du Prat… Il en aura mis du temps. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Bon, ben retour à la case départ alors. En même temps, maintenant c’est sur notre chemin. </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Eh, vous avez vu ! Il est trop beau ce bâtiment ! On dirait une gare ! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Ben, c’est parce que c’était une gare ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ici, au milieu de rien du tout ? </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Ben je suppose que tout s’est construit autour et qu’ils ont enlevé les rails après, nigaud ! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Exactement ! D’après les infos que j’ai, le train est arrivé à Colomiers en 1878. Et Colomiers est devenu un point de passage entre Toulouse et Auch. Ça aussi ce fut une richesse pour la ville ! Mais quand le projet d’aménagement de la ville a été mis en place, pour passer de 5.000 à 30.000 habitants, les rails ont été déviés et la gare a été déplacée 500 mètres plus au sud. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Visiblement, aujourd’hui, c’est une « maison citoyenne ». </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Oui, il y en a plein dans toute la ville. Ce sont des lieux de proximité mis à disposition des habitants pour les échanges, l’entraide ou la vie associative. </div> </div>
+
+    <div class="mission-box">
+        Sur les murs de l’ancienne gare, le nom de « Colomiers » a été taillé dans la pierre. Mais combien de fois précisément ?
+        <br><br> *Pensez à bien faire le tour complet du bâtiment pour trouver la bonne réponse.*
+        <br><br> Notez ce chiffre qui vaut **L** :
+        <div class="answer-input-zone">
+            <label for="L">L =</label>
+            <input type="number" id="L" min="0" max="9" required onchange="handleEnigmaInput_L('L')" onkeyup="handleEnigmaInput_L('L')">
+        </div>
+        <div id="validation-message-L"></div>
+    </div>
+
+    <div class="direction-box"> Revenez vers le kiosque et remontez quelques mètres encore sur l’allée des droits de l’enfant. Au passage clouté, dirigez vous vers la mairie et la place Alex Raymond. </div>
+</div>
+</section>
+
+<section id="etape13" class="etape">
+<div class="container">
+    <h2>13. Place Alex Raymond</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.610179,1.334539" target="_blank" class="gps-link">
+            N 43° 36.611' E 001° 20.072'
+        </a>
+    </div>
+
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Vous entendez ?? </div> </div>
+    <div class="dialogue-row">
+        <div class="stacked-avatars-visible"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar-left"> <img src="Bernard.jpg" alt="Bernard" class="avatar-right"> </div>
+        <div class="bubble"> <span class="name-tag">Loumpour et Bernard (perplexes)</span> Euh… non, quoi ? </div>
+    </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Les bruits de la fête… les flonflons, les accordéons, les manèges… </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Euh, j’entends rien, mais c’est sûrement parce que t’es plus sensible à la musique que nous… </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Oui, et aussi parce que nous sommes précisément à l’endroit où se dressait le mât de cocagne. Avant la construction du nouvel Hôtel de Ville en 1991, cette place était une simple place couverte de bitume, sans rien autour. Mais en son centre on trouvait encore le fameux mât typique des festivités du Lauragais. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> C’est pas le truc où il faut grimper tout en haut pour décrocher du jambon et le mât était frotté avec de la graisse ou du savon pour t’empêcher de grimper ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Exactement ! Seuls les plus habiles et musclés parvenaient à ramener quelque chose. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour (rêveuse)</span> … un jeu où pour gagner il suffit de savoir monter aux arbres… un vrai rêve de koala… </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Aujourd’hui les festivités du 14 juillet sont toujours célébrées ici avec les manèges de la fête foraine, et le feu d’artifice est tiré le 13 juillet au soir sur le frontispice de l’Hotel de Ville. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Le 13 juillet… ouais, y a pas qu’en matière de rugby qu’on craint la concurrence de Toulouse… </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Tiens, puisque tu nous reparles de rugby, regarde, là, le Sadourny Café. Ton ancien arrière du XV de France, il est restaurateur maintenant ! </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> J’espère qu’il y a des plats à l’eucalyptus ! </div> </div>
+
+    <div class="mission-box">
+        Attardez vous un peu sur l’esplanade de la mairie. En regardant la porte d’entrée de l’édifice depuis votre position, combien de topiaires (petits arbustes taillés précautionneusement) comptez-vous ?
+        <br> Ajoutez ceux à votre gauche et ceux à votre droite. C’est un nombre impair.
+        <br><br> Notez ce nombre qui vaut **M** :
+        <div class="answer-input-zone">
+            <label for="M">M =</label>
+            <input type="number" id="M" min="0" max="99" required oninput="resetValidation_M('M')">
+        </div>
+        <div id="validation-message-M"></div>
+        <button id="validate-button-M" class="btn-default" onclick="handleValidation_M('M')">
+            Valider la réponse
+        </button>
+    </div>
+
+    <div class="direction-box">
+        Quittez à présent la place en laissant l’Hôtel de ville sur votre droite. Puis empruntez l’avenue d’Occitanie vers la droite.
+        <br><br> <strong>Deux possibilités s’offrent à vous :</strong>
+        <div class="path-option"> <strong>1. Option "Passerelle" :</strong> 
+            Soit passer par le square des marronniers (<a href="https://www.google.com/maps/search/?api=1&query=43.611912,1.333595" target="_blank" class="path-link">N 43° 36.715' E 001° 20.016'</a>) 
+            puis la passerelle (<a href="https://www.google.com/maps/search/?api=1&query=43.612387,1.333596" target="_blank" class="path-link">N 43° 36.743' E 001° 20.016'</a>) 
+            après quoi vous contournerez le premier immeuble en le laissant à votre gauche. 
+        </div>
+        <div class="path-option"> <strong>2. Option "Rue de Limogne" :</strong> 
+            Soit vous empruntez la rue de Limogne (<a href="https://www.google.com/maps/search/?api=1&query=43.611545,1.333881" target="_blank" class="path-link">N 43° 36.693' E 001° 20.033'</a>) 
+            jusqu’au <a href="https://www.google.com/maps/search/?api=1&query=43.612100,1.334133" target="_blank" class="path-link">N 43° 36.726' E 001° 20.048'</a> 
+            et vous prenez en face au passage piéton. 
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="etape14" class="etape">
+<div class="container">
+    <h2>14. La stèle commémorative</h2>
+    <div class="gps-box">
+        📍 Cliquez pour y aller :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.612430,1.334364" target="_blank" class="gps-link">
+            N 43° 36.746' E 001° 20.062'
+        </a>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Allez, plus que quelques mètres et nous serons rue du Prat. Il va m’entendre le Didier ! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Eh, attendez, regardez ! C’est quoi cette stèle ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> J’sais pas… </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> JU88 N°6… pour moi c’est du charabia… </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Attends, je regarde ça…13 novembre 1944 à 10h50, un Junker JU88 en mission de guerre aérienne contre les forces allemandes décolle de Toulouse. Suite à une avarie il perd de la vitesse, heurte le sol de l’aile puis s’écrase contre une maison. L’appareil est détruit et l’intégralité de l’équipage meurt carbonisé. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Beurk… Les pauvres. </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Colomiers a plutôt été épargnée par les troupes allemandes par rapport a certaines autres villes, mais la Résistance a été très présente, notamment avec le Maquis « Roger » dirigé par Pierre Touron. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> C’est pas à Colomiers que Léon Blum a été arrêté ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Si ! Au château de l’armurier, à 1km d’ici, le 15 septembre 1940. C’est même là qu’il a reçu l’invitation de Roosevelt à partir aux Etats-Unis pour fuir le régime de Vichy qui commençait à sacrément pencher du mauvais côté. Invitation qu’il a déclinée, préférant tenter de sauver ce qu’il espérait pouvoir sauver. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Et rue du Prat, c’est la famille de Georges Kiejman, avocat et homme politique, qui a été raflée. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Brrr… ça fait froid dans le dos tout ça… bon si on passait à autre chose. Allez, Didier nous attend avec un trésor, on file. </div> </div>
+
+    <h2>MISSION</h2>
+    <div class="mission-box">
+        Avant de quitter ce lieu de commémoration, observez la plaque commémorative. Trois des prénoms qui y sont inscrits comportent exactement le même nombre de lettres. Combien précisément ? Notez ce chiffre qui vaut N
+        <div class="answer-input-zone">
+            <label for="N">N =</label>
+            <input type="number" id="N" min="0" max="99" required oninput="resetValidation_N('N')">
+        </div>
+        <div id="validation-message-N"></div>
+        <button id="validate-button-N" class="btn-default" onclick="handleValidation_N('N')">
+            Valider la réponse
+        </button>
+    </div>
+
+    <div class="direction-box"> Poursuivez sur la rue des garibaldiens, au bout de la rue prenez à droite et descendez la rue du Prat en direction de la place Firmin Pons. Arrêtez-vous au point GPS défini. </div>
+</div>
+</section>
+
+<div id="warning-etape15">
+    <h2>Étape 15 Verrouillée 🔒</h2>
+    <p>Pour passer à l'étape 15 vous devez avoir donné une réponse à toutes les questions (A à N).</p>
+    <p>Vérifiez les étapes précédentes.</p>
+</div>
+
+<section id="etape15" class="etape" style="display: none;">
+<div class="container">
+    <h2>15. Le trésor</h2>
+    <div class="gps-box">
+        📍 Lieu de la révélation (à proximité du trésor) :<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=43.613672,1.335429" target="_blank" class="gps-link">
+            N 43° 36.820' E 001° 20.126'
+        </a>
+    </div>
+
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> DIDIER !! DIDIER !!! </div> </div>
+    <div class="dialogue-row"> <img src="didier.jpg" alt="Didier" class="avatar"> <div class="bubble"> <span class="name-tag">Didier</span> Eh, salut les copains ! Ca fait une heure que je vous cherche ! </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Tu rigoles ou quoi ! On a eu le temps de faire trois fois le tour de la ville ! Bon c’est quoi cette histoire de tr… </div> </div>
+    <div class="dialogue-row"> <img src="didier.jpg" alt="Didier" class="avatar"> <div class="bubble"> <span class="name-tag">Didier</span> STOP ! Attention, tu vas marcher sur mon trésor ! </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Où ?! Quoi ?! Y a rien par terre ! </div> </div>
+    <div class="dialogue-row"> <img src="didier.jpg" alt="Didier" class="avatar"> <div class="bubble"> <span class="name-tag">Didier</span> Si là regarde ! </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Ca c’est pas un trésor, c’est du caca de pigeon ! </div> </div>
+    <div class="dialogue-row"> <img src="didier.jpg" alt="Didier" class="avatar"> <div class="bubble"> <span class="name-tag">Didier</span> Ben oui, justement ! La fiente est un engrais merveilleux ! Un véritable trésor ! C’est à ça qu'on mesurait au Moyen Âge la richesse d’une ville. La colombine est un des plus puissants engrais naturels - à utiliser avec modération bien-sûr. D’ailleurs le nom de Colomiers vient en fait d’une déformation de « Colombiers » qui était l’ancien nom qu’on donnait aux pigeonniers. Il y en a partout dans la ville encore aujourd’hui (des pigeonniers, la fiente c'est plus par ici qu'on en trouve) ! Et la colombe est toujours l’emblème de la ville. <br><br> D’ailleurs, c’était un signe de richesse économique mais aussi de pouvoir. La plupart des propriétaires de colombiers essayaient ainsi de devenir « co-seigneurs ». C’est comme ça qu’a commencé la prospérité de la ville, au pied du Fort qui se trouvait à quelques pas d’ici. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour (abattue)</span> Tu nous as fait faire tout ça pour de la m… </div> </div>
+    <div class="dialogue-row"> <img src="didier.jpg" alt="Didier" class="avatar"> <div class="bubble"> <span class="name-tag">Didier</span> De la fiente, oui ! Mais tu sais, ça donne bon goût aux fleurs quand on les butine ! </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Bon allez, les blaireaux, ça suffit ! On rentre maintenant ! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> On est pas des blaireaux ! On est des lamas ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Laisse-là, elle a pas l’âme à ça ! </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Allez ! Salut Didier ! A une prochaine ! </div> </div>
+
+    <div class="mission-box">
+        <h3>L'ÉNIGME FINALE : VÉRIFICATION DES VARIABLES</h3>
+        <p>Utilisez la grille ci-dessous pour vérifier et corriger vos 14 variables. Le petit mot au-dessus de chaque champ vous rappelle l'indice associé. Vous devez obtenir le statut VERT pour chaque variable afin de débloquer le trésor.</p>
+        <div id="variable-list"> </div>
+        <div class="legend">
+            <p><span class="status-dot dot-green"></span> Vert : La valeur saisie est correcte.</p>
+            <p><span class="status-dot dot-red"></span> Rouge : La valeur saisie est incorrecte.</p>
+        </div>
+        <hr style="margin: 20px 0;">
+        <h4>Formule de Calcul des Coordonnées (Pour information) :</h4>
+        <div class="final-formula-display"> N 4(E/A)°(L)(N).(B)(J-I)(G)′ E 1°(F+M).(D+H+K)(C)′ </div>
+        <div class="final-check-zone">
+            <button onclick="checkFinalAnswer()">Par ici le Trésor ! 🧭</button>
+            <div id="result-message"></div>
+            <div id="final-link-box">
+                <p style="font-weight: bold; color: #2980b9;"> Votre calcul est correct ! Le Trésor se trouve aux coordonnées : <br> N 43° 36.765′ E 1° 20.171′ </p>
+                <a id="final-gps-link" href="https://www.google.com/maps/search/?api=1&query=43.61275,1.336183" target="_blank" style="display: inline-block; padding: 10px 15px; background-color: #2ecc71; color: white; border-radius: 5px; text-decoration: none; font-size: 16px;">
+                    Voir la cache sur la carte !
+                </a>
+                <p style="font-size: 12px; color: #666; margin-top: 10px;">(Utilisez les coordonnées précises ci-dessus pour la recherche finale du contenant.)</p>
+            </div>
+        </div>
+    </div>
+    <div class="direction-box"> Finissez de descendre la rue du Prat pour retrouver la place Firmin Pons d’où vous avez commencé ce périple. </div>
+</div>
+</section>
+
+<script>
+    // ----------------------------------------------------------------------
+    // --- GESTION ET PERSISTANCE DES DONNÉES (UNIFIÉ 1-15) ---
+    // ----------------------------------------------------------------------
+
+    const ENIGMA_STORAGE_KEY = 'colomiers_enigma_answers';
+    const DEFAULT_ANSWERS = {A: null, B: null, C: null, D: null, E: null, F: null, G: null, H: null, I: null, J: null, K: null, L: null, M: null, N: null};
+
+    // =================================================================================
+    // VALEURS CORRECTES (Pour Etape 15)
+    const CORRECT_ANSWERS = {
+        A: 2, B: 7, C: 1, D: 13, E: 6, F: 9, G: 5, H: 2, I: 2, J: 8, K: 2, L: 3, M: 11, N: 6
+    };
+    
+    // RAPPELS (Pour Etape 15)
+    const REMINDERS = {
+        A: 'tours', B: 'losanges', C: 'centaines', D: '"Jean"', E: 'arches', 
+        F: 'lettres', G: 'juillet', H: 'dents', I: 'non potable', J: 'enfants', 
+        K: 'toboggan', L: 'gare', M: 'topiaires', N: 'prénoms'
+    };
+    // =================================================================================
+    
+    function loadEnigmaAnswers() {
+        try {
+            const savedData = localStorage.getItem(ENIGMA_STORAGE_KEY);
+            if (!savedData) return DEFAULT_ANSWERS;
+            return {...DEFAULT_ANSWERS, ...JSON.parse(savedData)};
+        } catch (e) {
+            console.error("Impossible de charger les réponses. Réinitialisation des données.", e);
+            return DEFAULT_ANSWERS;
+        }
+    }
+
+    function saveEnigmaAnswers(vars) {
+        try {
+            localStorage.setItem(ENIGMA_STORAGE_KEY, JSON.stringify(vars));
+        } catch (e) {
+            console.error("Impossible de sauvegarder les réponses. Le stockage local est bloqué.", e);
+        }
+        checkUnlockCondition();
+    }
+    
+    function resetButtonToDefault(button) {
+        if (button) {
+            button.classList.remove('btn-validated');
+            button.classList.add('btn-default');
+            button.textContent = "Valider la réponse";
+        }
+    }
+
+    // ----------------------------------------------------------------------
+    // --- VÉRIFICATION DE DÉVERROUILLAGE (Etape 15) ---
+    // ----------------------------------------------------------------------
+    
+    function checkUnlockCondition() {
+        const vars = loadEnigmaAnswers();
+        let allAnswered = true;
+        
+        for (const key in DEFAULT_ANSWERS) {
+            if (vars[key] === null) {
+                allAnswered = false;
+                break;
+            }
+        }
+        
+        const warningDiv = document.getElementById('warning-etape15');
+        const etape15Div = document.getElementById('etape15');
+
+        if (allAnswered) {
+            if (warningDiv) warningDiv.style.display = 'none';
+            if (etape15Div) etape15Div.style.display = 'block';
+            initFinalPage();
+        } else {
+            if (warningDiv) warningDiv.style.display = 'block';
+            if (etape15Div) etape15Div.style.display = 'none';
+        }
+    }
+
+    // ----------------------------------------------------------------------
+    // --- FONCTIONS POUR ÉNIGMES STANDARD (A-J) ---
+    // ----------------------------------------------------------------------
+
+    function resetStandardInput(varKey) {
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button-' + varKey);
+        const validationMessage = document.getElementById('validation-message-' + varKey);
+        
+        if (button) resetButtonToDefault(button);
+        if (validationMessage) validationMessage.textContent = "";
+
+        if (inputElement) {
+            const rawValue = inputElement.value.trim();
+            if (rawValue === "") {
+                let currentVars = loadEnigmaAnswers();
+                currentVars[varKey] = null;
+                saveEnigmaAnswers(currentVars);
+            }
+        }
+    }
+
+    function handleStandardValidation(varKey) {
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button-' + varKey);
+        const validationMessage = document.getElementById('validation-message-' + varKey);
+        
+        if (!inputElement || !button || !validationMessage) return;
+
+        const rawValue = inputElement.value.trim();
+        const value = parseInt(rawValue);
+        let currentVars = loadEnigmaAnswers();
+        
+        validationMessage.textContent = "";
+
+        if (rawValue === "") {
+            validationMessage.textContent = "❌ Veuillez entrer une valeur numérique.";
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
+            return;
+        }
+        
+        if (isNaN(value) || value < 0 || value > 99 || rawValue.includes('.')) {
+            validationMessage.textContent = "❌ Valeur incorrecte. Veuillez entrer un nombre entier positif entre 0 et 99.";
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
+            return;
+        }
+
+        if (varKey === 'D' && value % 2 === 0) {
+            validationMessage.textContent = "❌ La réponse doit être un chiffre impair.";
+            currentVars[varKey] = null; 
+            saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
+            return;
+        }
+        if (varKey === 'I' && value % 2 !== 0) {
+            validationMessage.textContent = "❌ La réponse doit être un chiffre pair.";
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
+            return;
+        }
+        
+        currentVars[varKey] = value;
+        saveEnigmaAnswers(currentVars);
+        
+        button.classList.remove('btn-default');
+        button.classList.add('btn-validated');
+        button.textContent = `Réponse ${varKey} = ${value} Sauvegardée !`;
+    }
+    
+    function initStandardInput(varKey) {
+        const loadedVars = loadEnigmaAnswers();
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button-' + varKey);
+        const savedValue = loadedVars[varKey];
+        
+        if (inputElement) inputElement.value = "";
+        
+        if (button && savedValue !== null) {
+            button.classList.remove('btn-default');
+            button.classList.add('btn-validated');
+            button.textContent = `Réponse ${varKey} = ${savedValue} Sauvegardée !`;
+        } else if (button) {
+            resetButtonToDefault(button);
+        }
+        
+        if(inputElement) inputElement.oninput = () => resetStandardInput(varKey);
+    };
+
+    // ----------------------------------------------------------------------
+    // --- FONCTIONS POUR ÉNIGMES QCM (K) ---
+    // ----------------------------------------------------------------------
+
+    function handleQCMInput(varKey) {
+        const inputElement = document.getElementById(varKey);
+        const validationMessage = document.getElementById('validation-message-' + varKey);
+        const selectedRadio = document.querySelector(`input[name="${varKey}_choice"]:checked`);
+        
+        let value = null;
+        let currentVars = loadEnigmaAnswers();
+
+        if (selectedRadio) {
+            value = parseInt(selectedRadio.value);
+            inputElement.value = value;
+            currentVars[varKey] = value;
+            validationMessage.classList.remove('error');
+            validationMessage.textContent = `✅ Réponse ${varKey} = ${value} Sauvegardée !`;
+        } else {
+            inputElement.value = "";
+            currentVars[varKey] = null;
+            validationMessage.classList.add('error');
+            validationMessage.textContent = "❌ Veuillez sélectionner une option.";
+        }
+        
+        saveEnigmaAnswers(currentVars);
+    }
+    
+    function initQCMInput(varKey) {
+        const loadedVars = loadEnigmaAnswers();
+        const inputElement = document.getElementById(varKey);
+        const validationMessage = document.getElementById('validation-message-' + varKey);
+        const savedValue = loadedVars[varKey];
+        
+        if (inputElement && savedValue !== null) {
+            inputElement.value = savedValue;
+            const savedRadio = document.querySelector(`input[name="${varKey}_choice"][value="${savedValue}"]`);
+            if(savedRadio) {
+                savedRadio.checked = true;
+                validationMessage.classList.remove('error');
+                validationMessage.textContent = `✅ Réponse ${varKey} = ${savedValue} déjà sauvegardée.`;
+            }
+        } else if (validationMessage) {
+            if(inputElement) inputElement.value = "";
+        }
+    };
+
+    // ----------------------------------------------------------------------
+    // --- FONCTIONS POUR ÉNIGME (L) - (Sauvegarde auto) ---
+    // ----------------------------------------------------------------------
+    
+    function handleEnigmaInput_L(varKey) {
+        const inputElement = document.getElementById(varKey);
+        const validationMessage = document.getElementById(`validation-message-${varKey}`);
+        
+        let value = inputElement.value.trim();
+        let numericValue = parseFloat(value);
+        let currentVars = loadEnigmaAnswers();
+        validationMessage.textContent = "";
+
+        if (value === "") {
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            return;
+        }
+        
+        if (isNaN(numericValue) || numericValue < 0 || numericValue > 9 || numericValue % 1 !== 0) {
+            validationMessage.textContent = "❌ Veuillez entrer un chiffre unique (0-9).";
+            validationMessage.style.color = "#e74c3c";
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            return;
+        }
+        
+        currentVars[varKey] = parseInt(value); 
+        saveEnigmaAnswers(currentVars);
+        
+        validationMessage.textContent = `✅ Chiffre ${varKey} = ${parseInt(value)} sauvegardé !`;
+        validationMessage.style.color = "#2ecc71";
+    }
+    
+    function initEnigmaPage_L(varKey) {
+        const loadedVars = loadEnigmaAnswers();
+        const inputElement = document.getElementById(varKey);
+        const savedValue = loadedVars[varKey];
+        
+        if (inputElement && savedValue !== null) {
+            inputElement.value = savedValue;
+        } else if (inputElement) {
+            inputElement.value = "";
+        }
+    };
+    
+    // ----------------------------------------------------------------------
+    // --- FONCTIONS POUR ÉNIGME (M) - (Bouton restauré) ---
+    // ----------------------------------------------------------------------
+    function resetValidation_M(varKey) {
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button-M');
+        const validationMessage = document.getElementById('validation-message-M');
+        
+        resetButtonToDefault(button);
+        validationMessage.textContent = "";
+
+        const rawValue = inputElement.value.trim();
+        if (rawValue === "") {
+            let currentVars = loadEnigmaAnswers();
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+        }
+    }
+
+    function handleValidation_M(varKey) {
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button-M');
+        const validationMessage = document.getElementById('validation-message-M');
+        
+        const rawValue = inputElement.value.trim();
+        const value = parseInt(rawValue);
+        let currentVars = loadEnigmaAnswers();
+        
+        validationMessage.textContent = "";
+
+        if (rawValue === "") {
+            validationMessage.textContent = "❌ Veuillez entrer une valeur numérique.";
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
+            return;
+        }
+        
+        if (isNaN(value) || value < 0 || value > 99 || rawValue.includes('.')) {
+            validationMessage.textContent = "❌ Valeur incorrecte. Veuillez entrer un nombre entier positif entre 0 et 99.";
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
+            return;
+        }
+
+        if (varKey === 'M' && value % 2 === 0) {
+            validationMessage.textContent = "❌ Ce nombre doit être impair, vérifiez votre décompte !";
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
+            return;
+        }
+
+        currentVars[varKey] = value;
+        saveEnigmaAnswers(currentVars);
+        
+        button.classList.remove('btn-default');
+        button.classList.add('btn-validated');
+        button.textContent = `Réponse ${varKey} = ${value} Sauvegardée !`;
+    }
+
+    function initEnigmaPage_M(varKey) {
+        const loadedVars = loadEnigmaAnswers();
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button-M');
+        const savedValue = loadedVars[varKey];
+        
+        if (inputElement) inputElement.value = "";
+        
+        if (button && savedValue !== null) {
+            button.classList.remove('btn-default');
+            button.classList.add('btn-validated');
+            button.textContent = `Réponse ${varKey} = ${savedValue} Sauvegardée !`;
+        } else if (button) {
+            resetButtonToDefault(button);
+        }
+        
+        if(inputElement) inputElement.oninput = () => resetValidation_M(varKey); 
+    };
+    
+    // ----------------------------------------------------------------------
+    // --- FONCTIONS POUR ÉNIGME (N) - (Bouton restauré) ---
+    // ----------------------------------------------------------------------
+    function resetValidation_N(varKey) {
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button-N');
+        const validationMessage = document.getElementById('validation-message-N');
+        
+        resetButtonToDefault(button);
+        validationMessage.textContent = "";
+
+        const rawValue = inputElement.value.trim();
+        if (rawValue === "") {
+            let currentVars = loadEnigmaAnswers();
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+        }
+    }
+
+    function handleValidation_N(varKey) {
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button-N');
+        const validationMessage = document.getElementById('validation-message-N');
+        
+        const rawValue = inputElement.value.trim();
+        const value = parseInt(rawValue);
+        let currentVars = loadEnigmaAnswers();
+        
+        validationMessage.textContent = "";
+        
+        if (rawValue === "" || isNaN(value) || value < 0 || value > 99 || rawValue.includes('.')) {
+            validationMessage.textContent = "❌ Veuillez entrer un nombre entier positif.";
+            currentVars[varKey] = null;
+            saveEnigmaAnswers(currentVars);
+            resetButtonToDefault(button);
+            return;
+        }
+
+        // Note: La vérification de la *valeur correcte* (== 6) n'est faite que sur la page 15
+        // Ici, on sauvegarde juste la valeur entrée.
+        
+        currentVars[varKey] = value;
+        saveEnigmaAnswers(currentVars);
+        
+        button.classList.remove('btn-default');
+        button.classList.add('btn-validated');
+        button.textContent = `Réponse ${varKey} = ${value} Sauvegardée !`;
+    }
+
+    function initEnigmaPage_N(varKey) {
+        const loadedVars = loadEnigmaAnswers();
+        const inputElement = document.getElementById(varKey);
+        const button = document.getElementById('validate-button-N');
+        const savedValue = loadedVars[varKey];
+        
+        if (inputElement) inputElement.value = "";
+        
+        if (button && savedValue !== null) {
+            button.classList.remove('btn-default');
+            button.classList.add('btn-validated');
+            button.textContent = `Réponse ${varKey} = ${savedValue} Sauvegardée !`;
+        } else if (button) {
+            resetButtonToDefault(button);
+        }
+        
+        if(inputElement) inputElement.oninput = () => resetValidation_N(varKey); 
+    };
+
+    
+    // ----------------------------------------------------------------------
+    // --- FONCTIONS POUR ÉNIGME FINALE (15) ---
+    // ----------------------------------------------------------------------
+    
+    function validateConstraint(key, value) {
+        if (value === null) return false;
+        const numValue = parseInt(value);
+        if (isNaN(numValue)) return false;
+
+        switch (key) {
+            case 'K': return [1, 2, 3].includes(numValue);
+            case 'D': return numValue % 2 !== 0;
+            case 'I': return numValue % 2 === 0;
+            case 'M': return numValue % 2 !== 0;
+            case 'L': return numValue >= 0 && numValue <= 9;
+            default: return true;
+        }
+    }
+    
+    function handleVariableCorrection(varKey) {
+        const inputElement = document.getElementById(`input-${varKey}`);
+        let value = inputElement.value.trim();
+        let numericValue = parseInt(value);
+        let currentVars = loadEnigmaAnswers();
+        
+        if (value === "" || isNaN(numericValue) || numericValue < 0) {
+            inputElement.value = ''; 
+            currentVars[varKey] = null;
+        } else {
+            currentVars[varKey] = numericValue;
+        }
+        
+        localStorage.setItem(ENIGMA_STORAGE_KEY, JSON.stringify(currentVars));
+        displayCollectedVariables();
+    }
+    
+    function displayCollectedVariables() {
+        const vars = loadEnigmaAnswers();
+        const listDiv = document.getElementById('variable-list');
+        if (!listDiv) return 0;
+        listDiv.innerHTML = ''; 
+
+        const variableKeys = Object.keys(DEFAULT_ANSWERS);
+        let allCorrect = true;
+
+        variableKeys.forEach(key => {
+            const value = vars[key];
+            const correctValue = CORRECT_ANSWERS[key];
+            const reminder = REMINDERS[key];
+            const item = document.createElement('div');
+            item.className = 'variable-item';
+            
+            let dotClass = 'dot-red';
+            let inputValue = '';
+            
+            if (value !== null && !isNaN(value)) {
+                inputValue = value;
+                const constraintValid = validateConstraint(key, value);
+                const valueCorrect = (value === correctValue);
+
+                if (valueCorrect && constraintValid) {
+                    dotClass = 'dot-green'; 
+                } else {
+                    allCorrect = false;
+                }
+            } else {
+                allCorrect = false;
+            }
+
+            item.innerHTML = `
+                <div class="variable-reminder">${reminder}</div>
+                <div class="variable-input-row">
+                    <span class="status-dot ${dotClass}"></span>
+                    ${key} = 
+                    <input type="number" id="input-${key}" value="${inputValue}" oninput="handleVariableCorrection('${key}')" placeholder="?">
+                </div>
+            `;
+            listDiv.appendChild(item);
+        });
+
+        const checkButton = document.querySelector('#etape15 .final-check-zone button');
+        if (checkButton) {
+            if (allCorrect) {
+                checkButton.style.backgroundColor = '#2ecc71';
+                checkButton.style.boxShadow = '0 4px #27ae60';
+            } else {
+                checkButton.style.backgroundColor = '#d35400';
+                checkButton.style.boxShadow = '0 4px #a04000';
+            }
+        }
+        return allCorrect ? 1 : 0;
+    }
+
+    function checkFinalAnswer() {
+        const messageDiv = document.getElementById('result-message');
+        const finalLinkBox = document.getElementById('final-link-box');
+        if (!messageDiv || !finalLinkBox) return;
+        
+        const allVariablesCorrect = displayCollectedVariables(); 
+
+        finalLinkBox.style.display = 'none';
+
+        if (allVariablesCorrect) {
+            messageDiv.style.color = '#2ecc71';
+            messageDiv.textContent = "✅ FÉLICITATIONS ! Les 14 variables sont validées. Le Trésor est révélé ci-dessous.";
+            finalLinkBox.style.display = 'block';
+        } else {
+            messageDiv.style.color = '#e74c3c';
+            messageDiv.textContent = "❌ Attention ! Toutes les variables n'ont pas le statut VERT. Veuillez corriger la grille ci-dessus pour débloquer le Trésor.";
+        }
+    }
+
+    function initFinalPage() {
+        if (document.getElementById('etape15').style.display !== 'none') {
+            const allCorrect = displayCollectedVariables();
+            const messageDiv = document.getElementById('result-message');
+            const finalLinkBox = document.getElementById('final-link-box');
+
+            if (allCorrect) {
+                if (finalLinkBox) finalLinkBox.style.display = 'block';
+                if (messageDiv) {
+                    messageDiv.style.color = '#2ecc71';
+                    messageDiv.textContent = "✅ Toutes les variables sont validées.";
+                }
+            } else {
+                if (finalLinkBox) finalLinkBox.style.display = 'none';
+            }
+        }
+    }
+
+    // ----------------------------------------------------------------------
+    // --- INITIALISATION DE TOUTES LES PAGES (UNIFIÉ) ---
+    // ----------------------------------------------------------------------
+    document.addEventListener("DOMContentLoaded", function() {
+        // Init énigmes standard (A-J)
+        ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'].forEach(initStandardInput);
+        
+        // Init énigmes QCM (K)
+        initQCMInput('K');
+        
+        // Init énigmes (L, M, N)
+        initEnigmaPage_L('L');
+        initEnigmaPage_M('M');
+        initEnigmaPage_N('N');
+        
+        // Init Etape 15 (Grille)
+        initFinalPage();
+        
+        // Vérification du verrou au chargement de la page
+        checkUnlockCondition();
+    });
+
+</script>
+
+</body>
+</html>
