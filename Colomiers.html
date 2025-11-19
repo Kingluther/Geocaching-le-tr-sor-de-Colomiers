@@ -41,7 +41,58 @@
             border-left: 5px solid #2980b9;
             padding-left: 10px;
         }
+        
+        /* --- NOUVEAU STYLE : PRÉSENTATION DES PERSONNAGES --- */
+        .character-presentation {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px 0;
+            border-bottom: 2px solid #eee;
+        }
 
+        .character-presentation p {
+            font-size: 1.1em;
+            color: #666;
+            margin: 0 0 15px 0;
+            font-weight: bold;
+        }
+
+        .character-group {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap; /* Pour s'assurer que ça reste lisible sur mobile */
+        }
+
+        .character-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 5px;
+            flex-basis: 30%; /* Pour répartir les groupes */
+        }
+
+        .character-icons {
+            display: flex;
+            margin-bottom: 5px;
+        }
+        
+        .badge-icon {
+            width: 91px; /* 70px * 1.3 = 91px */
+            height: 91px; /* 70px * 1.3 = 91px */
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #d35400; /* Bordure distinctive */
+            margin: 0 3px;
+        }
+
+        .character-label {
+            font-size: 0.85em;
+            color: #d35400;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
         /* --- STYLE DES DIALOGUES (IDENTIQUE) --- */
         .dialogue-row {
             display: flex;
@@ -207,6 +258,34 @@
 
     <h1>Le trésor de Colomiers</h1>
 
+    <div class="character-presentation">
+        <p>Une aventure de :</p>
+        <div class="character-group">
+            
+            <div class="character-item">
+                <div class="character-icons">
+                    <img src="badge loumpour.png" alt="Loumpour" class="badge-icon">
+                </div>
+                <span class="character-label">La koala</span>
+            </div>
+            
+            <div class="character-item">
+                <div class="character-icons">
+                    <img src="badge bernard.png" alt="Bernard" class="badge-icon">
+                    <img src="badge serge.png" alt="Serge" class="badge-icon">
+                </div>
+                <span class="character-label">Les lamas jumeaux</span>
+            </div>
+
+            <div class="character-item">
+                <div class="character-icons">
+                    <img src="badge didier.png" alt="Didier" class="badge-icon">
+                </div>
+                <span class="character-label">Le bourdon</span>
+            </div>
+            
+        </div>
+    </div>
     <div class="dialogue-row">
         <img src="Bernard.jpg" alt="Bernard" class="avatar">
         <div class="bubble">
@@ -244,8 +323,8 @@
 
     <div class="gps-box">
         📍 Cliquez pour y aller :<br>
-        <a href="https://www.google.com/maps/search/?api=1&query=43.61484982050273,1.3375967858732163" target="_blank" class="gps-link">
-            43.61448617264853, 1.3377057629227862
+        <a href="https://www.google.com/maps/search/?api=1&query=43.614483,1.3377" target="_blank" class="gps-link">
+            N 43° 36.869' E 001° 20.262'
         </a>
     </div>
 
@@ -323,29 +402,9 @@
     </div>
 
 
-    <div class="dialogue-row">
-        <img src="Loumpour.jpg" alt="Loumpour" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Loumpour</span>
-            Un tunnel secret : Vous avez raisons les lamas, je commence à croire que Didier ne nous a pas menti… Simplement maintenant que le château est détruit, cela ne nous avance pas à grand-chose.
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Bernard.jpg" alt="Bernard" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Bernard</span>
-            Le panneau dit qu’il y a un autre tunnel du côté de l’église, c’est peut-être là-bas qu’est enterré le trésor ?
-        </div>
-    </div>
-
-    <div class="dialogue-row">
-        <img src="Serge.jpg" alt="Serge" class="avatar">
-        <div class="bubble">
-            <span class="name-tag">Serge</span>
-            De toute façon on n’a pas d’autres pistes. Direction l’église !
-        </div>
-    </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Un tunnel secret : Vous avez raisons les lamas, je commence à croire que Didier ne nous a pas menti… Simplement maintenant que le château est détruit, cela ne nous avance pas à grand-chose. </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Le panneau dit qu’il y a un autre tunnel du côté de l’église, c’est peut-être là-bas qu’est enterré le trésor ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> De toute façon on n’a pas d’autres pistes. Direction l’église ! </div> </div>
 
     <div class="direction-box">
         Descendez à présent la rue du Couderc sur une centaine de mètres en direction de la place Firmin Pons.
@@ -492,3 +551,4 @@
 
 </body>
 </html>
+```http://googleusercontent.com/image_generation_content/0
