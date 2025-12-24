@@ -1,12 +1,9 @@
+
 <!doctype html>
 <html lang='fr'>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- IMPORT FONT AWESOME POUR LES ICÔNES -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
     <title>Le trésor de Colomiers - Étapes 1-15</title>
     
     <style>
@@ -201,10 +198,18 @@
         
         /* Bouton de validation (Générique L, M, N) */
         /* Etape 13 et 14 utilisent un ID unique pour le bouton */
-        #validate-button-M, #validate-button-N {
-            display: block; width: 100%; padding: 12px; margin-top: 15px; border: none; border-radius: 5px;
-            font-weight: bold; font-size: 16px; cursor: pointer; transition: background-color 0.2s, color 0.2s;
-        }
+#validate-button-L, #validate-button-M, #validate-button-N {
+    display: block; 
+    width: 100%; 
+    padding: 12px; 
+    margin-top: 15px; 
+    border: none; 
+    border-radius: 5px;
+    font-weight: bold; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.2s, color 0.2s;
+}
 
         /* Styles du bouton (Unifiés) */
         .btn-default { background-color: #bdc3c7; color: #34495e; }
@@ -293,11 +298,11 @@
             <img src="Colomiers.jpg" alt="Image de Colomiers">
         </div>
         <div class="info-col-middle">
-            <div class="distance">3 km 60-90mn</div>
+            <div class="distance">3 km</div>
             <div class="info-icons">
                 <span class="info-icon" title="Faisable à pied">🚶</span>
-                <span class="info-icon" title="Faisable en vélo"> <i class="fas fa-bicycle"></i> </span>
-                <span class="info-icon" title="Faisable en poussette"> <i class="fas fa-baby-carriage"></i> </span> <span class="info-icon" title="Animaux de compagnie autorisés">🐶</span>
+                <span class="info-icon" title="Faisable en vélo">🚲</span>
+                <span class="info-icon" title="Faisable en poussette">🛒</span> <span class="info-icon" title="Animaux de compagnie autorisés">🐶</span>
                 <span class="info-icon" title="Prévu pour les enfants">👪</span> <span class="info-icon" title="Accessible 24/7">🏪</span>
                 <span class="info-icon" title="Eau potable à proximité">💧</span>
             </div>
@@ -355,7 +360,7 @@
     </div>
 
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Salut les jumeaux ! Bon, c’est quoi cette histoire de trésor ? </div> </div>
-    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> C’est Didier qui nous a prévenus. Il a dit qu’il avait trouvé le trésor qui avait fait la richesse de Colomiers depuis des siècles. On va être riche nous aussi ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> C’est Didier qui nous a prévenus. Il a dit qu’il avait trouvé le trésor qui avait fait la richesse de Colomiers depuis des siècles. On va être riches nous aussi ! </div> </div>
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Et il est où Didier ? </div> </div>
     <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> On sait pas ! Il est pas encore arrivé. Il nous a donné rendez-vous dans les parages. </div> </div>
     <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Il devrait pas tarder. On a qu’à commencer sans lui ! </div> </div>
@@ -369,7 +374,7 @@
         <button id="validate-button-A" class="btn-default" onclick="handleStandardValidation('A')"> Valider la réponse </button>
     </div>
 
-    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Le panneau parle d'un tunnel secret : Vous avez raisons les lamas, je commence à croire que Didier ne nous a pas menti… Simplement maintenant que le château est détruit, cela ne nous avance pas à grand-chose. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Un tunnel secret : Vous avez raisons les lamas, je commence à croire que Didier ne nous a pas menti… Simplement maintenant que le château est détruit, cela ne nous avance pas à grand-chose. </div> </div>
     <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Le panneau dit qu’il y a un autre tunnel du côté de l’église, c’est peut-être là-bas qu’est enterré le trésor ? </div> </div>
     <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> De toute façon on n’a pas d’autres pistes. Direction l’église ! </div> </div>
     <div class="direction-box"> Descendez à présent la rue du Couderc sur une centaine de mètres en direction de la place Firmin Pons. </div>
@@ -457,7 +462,7 @@
     <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Tiens, tous ces noms ça me rappelle un truc que j’ai lu sur la ville. Il paraît que jusqu’en 1936, la ville de Colomiers n’a jamais compté plus de 1.900 habitants. En revanche en moins de 100 ans la population a été multipliée par 20, puisque Colomiers compte aujourd’hui plus de 41.000 habitants. A voir la proportion de columérins morts lors de la première guerre mondiale, on aurait pu croire le contraire. </div> </div>
 
     <div class="mission-box">
-        Sur le Monument aux Morts, combien de fois le prénom « Jean » apparait-il ? Faites bien le tour sur les trois faces et ne tenez compte ni des doubles prénoms, ni des prénoms composés. C’est un chiffre impair. Notez ce nombre qui vaut D.
+        Sur le Monument aux Morts, combien de fois le prénom « Jean » apparait-il ? Faites bien le tour sur les trois faces et ne tenait compte ni des doubles prénoms, ni des prénoms composés. C’est un chiffre impair. Notez ce nombre qui vaut D.
         <div class="answer-input-zone"> <label for="D" id="D-label">D =</label> <input type="number" id="D" min="0" max="99" required oninput="resetStandardInput('D')"> </div>
         <div id="validation-message-D"></div>
         <button id="validate-button-D" class="btn-default" onclick="handleStandardValidation('D')"> Valider la réponse </button>
@@ -546,11 +551,11 @@
         </a>
     </div>
 
-    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Place de la bascule… Ben je la vois pas, moi, la bascule… </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Place de la bascule… Ben je la vois pas, moi la bascule… </div> </div>
     <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> C’est normal, elle n’est plus là depuis plus de 50 ans. Mais c’est là que les columérins venaient peser leurs récoltes à la fin du XIXème siècle. </div> </div>
     <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Tiens, j’ai trouvé une vieille photo. Elle était là, derrière la croix en métal. </div> </div>
-    <a href="Bascule.jpg" target="_blank" class="image-link"> <img src="Bascule.jpg" alt="Ancienne bascule de Colomiers" class="illustration-grande"> </a>
-    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Euh, les gars… je me demande si je viens pas de trouver le trésor ! Mais, ça me parait pas très légal… Regardez en face... Didier vous a pas demandé de braquer des banques quand même ??!! </div> </div>
+    <a href="bascule.jpg" target="_blank" class="image-link"> <img src="bascule.jpg" alt="Ancienne bascule de Colomiers" class="illustration-grande"> </a>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Euh, les gars… je me demande si je viens pas de trouver le trésor ! Mais, ça me parait pas très légal… Didier vous a pas demandé de braquer des banques quand même ??!! </div> </div>
     <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Meuuh non ! T’es fou ! </div> </div>
     <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Tiens, tu parles vache maintenant toi ! Je savais pas ! </div> </div>
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Bon réfléchissons, qu’est-ce qui a pu faire la singularité de Colomiers et apporter richesse et prospérité à ses habitants ? </div> </div>
@@ -616,7 +621,7 @@
     <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Sauf qu’à cette époque, Colomiers est une des premières villes de France à avoir des ronds-points. Et le code de la route ne prévoit pas ce type d’équipements. On y applique donc la règle de la priorité à droite, ce qui signifie que ceux qui rentrent sur le rond-point sont prioritaires sur ceux qui sont sur l’anneau… </div> </div>
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Mais ça devait être super dangereux ! </div> </div>
     <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Pour les columérins qui savaient, non, mais pour les autres, oui. A la fin des années 90, il y avait pas mal d’accrochages. Le conseil municipal a donc voté le changement et depuis octobre 2002 la priorité est la même que partout en France. </div> </div>
-    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Mais pendant presque 50 ans, la ville a fonctionné différemment, et sur plusieurs dizaines de ronds-points. Qu’est-ce que tu dis de ça, toi qui cherchais un truc qui a fait la renommée de la ville ? </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Mais pendant plus de 50 ans, la ville a fonctionné différemment, et sur plusieurs dizaines de ronds-points. Qu’est-ce que tu dis de ça. Toi qui cherchais un truc qui a fait la renommée de la ville ? </div> </div>
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> (déçue) OK, mais… c’est pas un trésor ! </div> </div>
     <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Bon, ben continuons alors… </div> </div>
 
@@ -625,6 +630,7 @@
         <div class="answer-input-zone"> <label for="I">I =</label> <input type="number" id="I" min="0" max="99" required oninput="resetStandardInput('I')"> </div>
         <div id="validation-message-I"></div>
         <button id="validate-button-I" class="btn-default" onclick="handleStandardValidation('I')"> Valider la réponse </button>
+
     </div>
 
     <div class="direction-box"> Continuez votre route en ressortant de l'autre côté du rond-point et continuez sur l'allée des droits de l'enfant jusqu'au point suivant. </div>
@@ -642,9 +648,9 @@
 
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> C’est quoi ce bâtiment étrange devant lequel on vient de passer ? </div> </div>
     <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Le pavillon blanc. D’après le site de la Mairie, il a été conçu par Rudy Riccioti en 2011. Il permet de réunir un espace médiathèque (plus de 110.000 ouvrages) et un espace dédié à l’art contemporain. Je me souviens que Colomiers a toujours été une ville motrice en termes d’art contemporain. Il y avait une galerie à quelques pas d’ici qui s’appelait « l’espace des arts » où étaient présentées des expositions temporaires. Elle est aujourd’hui occupée par une compagnie de théâtre qui fait aussi de la création contemporaine. </div> </div>
-    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Et ça date pas d'hier. En 1982, Pierre Debeaux, connu pour être l’architecte de la caserne Vion à Toulouse, avait été choisi pour construire sur le rond-point de Flandres-Dunkerke une structure métallique gigantesque en trois dimensions nommée "Zéthos". Un peu à la façon d’un mobile de Calder, elle bougeait au gré du vent. Elle s’est malheureusement écroulée 5 ans après son installation tuant deux personnes, qui étaient venues pour tenter de la réparer car elle ne bougeait plus. </div> </div>
-    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Gloups… Comme quoi l'art contemporain ça peut être assez violent ! Euh, vous avez rien de plus joyeux ? </div> </div>
-    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ah, ben si ! Colomiers est également labélisée “ville amie des enfants” par l’UNICEF depuis 2009, label renouvelé au moins jusqu’en 2026. Elle s’engage au bien-être, à la non-discrimination et à la participation des enfants dans la vie culturelle, politique et sportive. </div> </div>
+    <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Et ça date pas d'hier. En 1982, Pierre Debeaux, connu pour être l’architecte de la caserne Vion à Toulouse, avait été choisi pour construire sur le rond-point de Flandres-Dunkerke une structure métallique gigantesque en trois dimensions. Un peu à la façon d’un mobile de Calder, elle bougeait au gré du vent. Elle s’est malheureusement écroulée 5 ans après son installation tuant deux personnes, qui étaient venues pour tenter de la réparer car elle ne bougeait plus. </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Gloups… Euh, vous avez rien de plus joyeux ? </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ah, ben si ! Colomiers est également labélisée “ville amie des enfants” par l’UNICEF depuis 2009 et renouvelé au moins jusqu’en 2026. Elle s’engage au bien-être, à la non-discrimination et à la participation des enfants dans la vie culturelle, politique et sportive. </div> </div>
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Eh, mais voilà ! On l’a notre trésor : les enfants ! C’est vieux comme le monde, et ils sont tellement mignons… </div> </div>
     <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Ben si c’est ça ton trésor, moi j’en veux pas ! Beurk ! Ca bave, ça crie ! Non merci ! </div> </div>
 
@@ -686,8 +692,8 @@
     <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Ouais, mais ça vaut pas les performances du Stade Toulousain. </div> </div>
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Peut-être mais pour une ville dix fois plus petite ça claque. Et en plus le Colomiers Rugby a aussi formé de grands joueurs internationaux : Jean-Luc Sadourny, les Skrela père et fils, et puis Fabien Galthié actuel sélectionneur de l’équipe de France ! </div> </div>
     <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ok, ok, mais t’as dis « le monde entier ». Les joueurs ne sont pas connus pour leur ville, mais pour le pays qu’ils représentent. </div> </div>
-    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Peut-être, mais qu’est-ce que tu dis de ça ? En 2022, neufs adolescents issus de Breakin’School, l’école de breakdance de Colomiers ont été sacrés Champions du Monde de breakdance au Japon ! </div> </div>
-    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ouahou, ça crache (blague de lama) ! Mais en attendant, c’est plutôt embêtant… </div> </div>
+    <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Peut-être, mais qu’est-ce que tu dis de ça ? En 2022, 9 adolescents issus de Breakin’School, l’école de breakdance de Colomiers ont été sacrés Champions du Monde de breakdance au Japon ! </div> </div>
+    <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ouahou, la classe ! Mais en attendant, c’est plutôt embêtant… </div> </div>
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Je vois pas pourquoi. </div> </div>
     <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Ben parce que ça nous fait un trésor de plus ! Le sport aussi ça existe depuis toujours… Alors, c’est quoi qu’on cherche ? Un coffre plein d’or caché dans un sous-terrain ? Les reliques d’une sainte ? La douceur de vivre ? De l’art (contemporain ou pas) ? Des ronds points ? Des enfants ? Je sais plus moi ! </div> </div>
     <div class="dialogue-row"> <img src="Bernard.jpg" alt="Bernard" class="avatar"> <div class="bubble"> <span class="name-tag">Bernard</span> Serge ! Il en est où Didier ? </div> </div>
@@ -732,16 +738,19 @@
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Visiblement, aujourd’hui, c’est une « maison citoyenne ». </div> </div>
     <div class="dialogue-row"> <img src="Serge.jpg" alt="Serge" class="avatar"> <div class="bubble"> <span class="name-tag">Serge</span> Oui, il y en a plein dans toute la ville. Ce sont des lieux de proximité mis à disposition des habitants pour les échanges, l’entraide ou la vie associative. </div> </div>
 
-    <div class="mission-box">
+<div class="mission-box">
         Sur les murs de l’ancienne gare, le nom de « Colomiers » a été taillé dans la pierre. Mais combien de fois précisément ?
         <br><br> Pensez à bien faire le tour complet du bâtiment pour trouver la bonne réponse.
         <br><br> Notez ce chiffre qui vaut L :
-        <div class="answer-input-zone">
-            <label for="L">L =</label>
-            <input type="number" id="L" min="0" max="9" required onchange="handleEnigmaInput_L('L')" onkeyup="handleEnigmaInput_L('L')">
-        </div>
-        <div id="validation-message-L"></div>
-    </div>
+        
+        <div class="enigma-interaction-area">             <div class="answer-input-zone">
+                <label for="L">L =</label>
+                <input type="number" id="L" min="0" max="9" required onchange="handleEnigmaInput_L('L')" onkeyup="handleEnigmaInput_L('L')">
+            </div>
+            <div id="validation-message-L"></div>
+            <button id="validate-button-L" class="btn-default" onclick="handleStandardValidation('L')"> Valider la réponse </button>
+        </div>     </div>
+
 
     <div class="direction-box"> Revenez vers le kiosque et remontez quelques mètres encore sur l’allée des droits de l’enfant. Au passage clouté, dirigez vous vers la mairie et la place Alex Raymond. </div>
 </div>
@@ -860,7 +869,7 @@
     </div>
 
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> DIDIER !! DIDIER !!! </div> </div>
-    <div class="dialogue-row"> <img src="didier.jpg" alt="Didier" class="avatar"> <div class="bubble"> <span class="name-tag">Didier</span> Eh, salut les copains ! Ca fait une heure que je vous cherche ! </div> </div>
+    <div class="dialogue-row"> <img src="Didier.jpg" alt="Didier" class="avatar"> <div class="bubble"> <span class="name-tag">Didier</span> Eh, salut les copains ! Ca fait une heure que je vous cherche ! </div> </div>
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Tu rigoles ou quoi ! On a eu le temps de faire trois fois le tour de la ville ! Bon c’est quoi cette histoire de tr… </div> </div>
     <div class="dialogue-row"> <img src="Didier.jpg" alt="Didier" class="avatar"> <div class="bubble"> <span class="name-tag">Didier</span> STOP ! Attention, tu vas marcher sur mon trésor ! </div> </div>
     <div class="dialogue-row"> <img src="Loumpour.jpg" alt="Loumpour" class="avatar"> <div class="bubble"> <span class="name-tag">Loumpour</span> Où ?! Quoi ?! Y a rien par terre ! </div> </div>
@@ -898,6 +907,98 @@
         </div>
     </div>
     <div class="direction-box"> Finissez de descendre la rue du Prat pour retrouver la place Firmin Pons d’où vous avez commencé ce périple. </div>
+<!-- ========================= -->
+<!--  ENCARt GÉOCACHING + PAYPAL -->
+<!-- ========================= -->
+
+<div class="support-box" style="
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+">
+
+    <!-- Instructions géocaching -->
+    <div style="text-align: left; margin-bottom: 25px; font-size: 14px; color: #333; line-height: 1.5;">
+        <strong>Si vous n’êtes pas familier du « géocaching » voici ce qu’il vous faut faire maintenant :</strong><br><br>
+        1) Vous rendre aux coordonnées GPS indiquées (soyez discrets pour ne pas révéler la cache à des personnes moins bien intentionnées que vous).<br>
+        2) Trouver le contenant (il est en plastique transparent, hermétique, et mesure à peu près 20 cm de haut). Attention, c'est la pointe du pointeur qui sert à déterminer la position sur Google Maps, pas le cercle !<br>
+        3) Si vous le souhaitez, signer le « logbook » et indiquer la date de votre passage.<br>
+        4) Si vous le souhaitez, prendre un des objets se trouvant dans le contenant. Pensez aux autres, n'en prenez qu'un par personne. Merci. <br>
+        5) Redissimuler le contenant exactement à l’endroit où vous l’avez trouvé, en veillant à le refermer hermétiquement, 
+        de manière à ce que d’autres puissent le trouver.<br><br>
+        Si le contenant a besoin d’être enlevé, quelle qu’en soit la raison, merci de contacter le propriétaire à l’adresse suivante : kingluther@free.fr
+       
+       <button onclick="toggleHint()" class="hint-button">
+    Besoin d'un indice ?
+</button>
+
+<div id="hint" style="display:none; margin-top: 10px; font-style: italic;">
+    💡 Indice : Pensez plus comme un "panda" que comme un "koala".
+</div>
+
+        </div>
+        
+  
+<!-- IMAGE AU MILIEU -->
+    <div style="margin: 20px auto;">
+        <img src="Mix.png" alt="Illustration" style="
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        ">
+    </div>
+
+<!-- ========================= -->
+<!--  ENCARt SOUTIEN / PAYPAL -->
+<!-- ========================= -->
+
+<div class="support-box" style="
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+">
+
+
+    <!-- Texte + bouton -->
+    <div style="flex-grow: 1;">
+
+        <p style="font-size: 14px; color: #444; margin-top: 0;">
+            Si vous avez aimé cette aventure et souhaitez/pouvez soutenir son créateur,
+            n'hésitez pas à faire un don à la hauteur de vos moyens (ou de votre engouement).<br>
+            <strong>Scénario, illustration, conception et entretien de la cache : Martin FEUILLERAC © 2025</strong>
+        </p>
+
+        <!-- Zone d'intégration PayPal -->
+        <div id="paypal-container-QRBLL5TG5VCV8"></div>
+
+        <!-- SCRIPT PAYPAL -->
+        <script 
+            src="https://www.paypal.com/sdk/js?client-id=BAAUS3_NIDV8soA10_b5bKgMnexRFb8e5KeIbCj1SEfS6MR5cqf6U6p6PhCiRqAguCQ9hWXK5l5kl4UGRM&components=hosted-buttons&disable-funding=venmo&currency=EUR">
+        </script>
+
+        <script>
+            paypal.HostedButtons({
+              hostedButtonId: "QRBLL5TG5VCV8",
+            }).render("#paypal-container-QRBLL5TG5VCV8");
+        </script>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+
+
 </div>
 </section>
 
@@ -1469,24 +1570,8 @@
 
 </script>
 
+<script>function toggleHint(){const h=document.getElementById('hint'); h.style.display=(h.style.display==='none'||!h.style.display)?'block':'none';}</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
